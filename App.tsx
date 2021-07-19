@@ -16,7 +16,7 @@ export default function App() {
         <Stack.Navigator
           initialRouteName="Home"
           screenOptions={{
-            header: (props:any) => <CustomNav {...props}/>,
+            header: (props:any) => <CustomNav {...props}/>, //Use Custom Navigator Bar
           }}>
           <Stack.Screen name="Home" component={Home} />
           <Stack.Screen name="Profile" component={Profile} />
