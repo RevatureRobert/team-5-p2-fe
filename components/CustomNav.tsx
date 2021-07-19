@@ -8,6 +8,8 @@ export default function CustomNav({navigation, previous}) {
             <Appbar.Header>
                 {previous ? <Appbar.BackAction onPress={navigation.goBack} /> : null}
                 <Appbar.Content title="Sylph"/>
+                <Appbar.Action icon="tooltip-plus"/>
+                <Appbar.Action icon="account"/>
             </Appbar.Header>
         </View>
     );
