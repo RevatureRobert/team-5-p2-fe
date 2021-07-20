@@ -11,7 +11,7 @@ interface IProps {
 const Threads: React.FC<IProps> = (props: IProps) =>{
     return(
         <View >
-            <Card style = {card.title}>
+            <Card style = {card.thread}>
                 <Card.Title title = {props.thread.title} subtitle= {props.thread.author}/>
                 <Card.Content>
                     <Title style={card.text}>{props.thread.description}</Title>
@@ -32,28 +32,33 @@ const card = StyleSheet.create({
     title: {
         width: '50%',
         margin: 'auto',
-        padding: '1em',
-        marginBottom: '10px',
-        backgroundColor: '#279',
+        // padding: '1em',
+        // marginBottom: '10px',
+        // backgroundColor: '#279',
+    },
+    view: {
+        // color: '#123'
+    },
+    sub: {
+        // fontSize: 30,
+        // color: '#000'
+    },
+    thread: {
+        width: '50%',
+        margin: 'auto',
     },
     text: {
         fontSize: 30,
         color: '#000'
     },
-    view: {
-        color: '#123'
-    },
-    sub: {
-        fontSize: 30,
-        color: '#000'
-    }
 })
 
-const images = StyleSheet.create({
-    size: {
-        width: '30%', 
-        alignItems:'center'
-    }
-})
+
+// const images = StyleSheet.create({
+//     size: {
+//         // width: '30%', 
+//         // alignItems:'center'
+//     }
+// })
 
 export default Threads;
