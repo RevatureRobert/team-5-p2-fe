@@ -1,15 +1,16 @@
 import React from 'react'
-import { View } from 'react-native';
+import { View,Text } from 'react-native';
 import { Appbar } from 'react-native-paper';
 
-export default function CustomNav({navigation, previous}) {
+export default function CustomNav(props, {navigation, previous}: any) {
+
     return(
         <View>
             <Appbar.Header>
                 {previous ? <Appbar.BackAction onPress={navigation.goBack} /> : null}
                 <Appbar.Content title="Sylph"/>
-                <Appbar.Action icon="tooltip-plus"/>
-                <Appbar.Action icon="account"/>
+                {props.loggedIn ? <Appbar.Action icon="tooltip-plus"/> : null}
+                {props.loggedIn ? <Appbar.Action icon="account-check"/> : <Appbar.Action icon="account-plus"/>}
             </Appbar.Header>
         </View>
     );
