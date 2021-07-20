@@ -1,16 +1,22 @@
-import React from 'react'
+import React from 'react';
+import {iThread} from './models';
 import { View, Image, StyleSheet } from 'react-native';
 import { Avatar, Button, Card, Title, Paragraph } from 'react-native-paper';
+import { Colors } from 'react-native/Libraries/NewAppScreen';
 
-export default function Thread() {
+interface IProps {
+    thread: iThread;
+}
+
+const Threads: React.FC<IProps> = (props: IProps) =>{
     return(
-        <View>
-            <Card style = {card.thread}>
-                <Card.Title title = "Threads" subtitle= "Test" />
+        <View >
+            <Card style = {card.title}>
+                <Card.Title title = {props.thread.title} subtitle= {props.thread.author}/>
                 <Card.Content>
-                    <Title style={card.text}>Henlo Fren</Title>
-                    <Paragraph>Testing</Paragraph>
-                <Card.Cover style = {{width: '30%', alignItems:'center'}} source={{ uri: 'https://picsum.photos/700' }}/>
+                    <Title style={card.text}>{props.thread.description}</Title>
+                    <Paragraph>{props.thread.post}</Paragraph>
+                {/* <Card.Cover style = {images.size} source={{ uri: 'https://picsum.photos/700' }}/> */}
                 </Card.Content>
                 <Card.Actions>
                     <Button icon="arrow-up-circle-outline"> </Button>
@@ -23,12 +29,31 @@ export default function Thread() {
 }
 
 const card = StyleSheet.create({
-    thread: {
+    title: {
         width: '50%',
         margin: 'auto',
+        padding: '1em',
+        marginBottom: '10px',
+        backgroundColor: '#279',
     },
     text: {
         fontSize: 30,
         color: '#000'
     },
+    view: {
+        color: '#123'
+    },
+    sub: {
+        fontSize: 30,
+        color: '#000'
+    }
 })
+
+const images = StyleSheet.create({
+    size: {
+        width: '30%', 
+        alignItems:'center'
+    }
+})
+
+export default Threads;
