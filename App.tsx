@@ -8,15 +8,17 @@ import Profile from './Screens/Profile'
 import CustomNav from './components/CustomNav';
 import AddThread from './components/AddThread';
 import LogInModal from './components/CustomLogInModal'
-import { createStore, Store } from 'redux';
-import {IAppThreadState} from './redux/Store';
-import { IAppThreadActions } from './redux/Actions';
-import {reducersThread} from './redux/Reducers'
+import { combineReducers, createStore, Store } from 'redux';
+import {IAppState} from './redux/Store';
+import { IAppActions, IAppThreadActions, IAppUserActions } from './redux/Actions';
+import {reducersThread, reducersUser} from './redux/Reducers'
 import { Provider, useSelector } from 'react-redux';
 
 
 const Stack = createStackNavigator();
-const store: Store<IAppThreadState, IAppThreadActions> = createStore(reducersThread)
+
+const rootReducer = combineReducers({thread: reducersThread, user: reducersUser})
+const store: Store<IAppState, IAppUserActions | IAppThreadActions> = createStore(rootReducer)
 
 export default function App() {
 
@@ -67,7 +69,7 @@ export default function App() {
   }
 
   return (
-    <Provider store={store}>
+    <Provider store={store} >
       <PaperProvider>
         <NavigationContainer>
           <Stack.Navigator

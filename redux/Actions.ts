@@ -1,5 +1,10 @@
 import {iThread, iUser} from "../components/models";
 
+export interface IAppActions {
+    user: IAppUserActions;
+    thread: IAppThreadActions;
+}
+
 export enum ThreadAction {
     ADD_THREAD = 'Add Thread',
     REMOVE_THREAD = 'Remove Thread',

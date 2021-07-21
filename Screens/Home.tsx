@@ -3,12 +3,13 @@ import { View, Image, StyleSheet } from 'react-native';
 import Thread from '../components/Thread';
 import {iThread} from '../components/models'
 import { useSelector } from 'react-redux';
-import {IAppThreadState} from '../redux/Store';
+import {IAppState} from '../redux/Store';
+import { IAppThreadActions } from '../redux/Actions';
 
 
 export default function Home({navigation}) {
 
-   const threads = useSelector((state:IAppThreadState) => state.threads);
+   const threads = useSelector((state:IAppState) => state.thread.threads);
 
     return (
     <View>

@@ -1,5 +1,10 @@
 import {iThread, iUser} from "../components/models"
 
+export interface IAppState {
+    user: IAppUserState;
+    thread: IAppThreadState;
+}
+
 export interface IEditThreadState {
     currentThread: number;
     edit: boolean;

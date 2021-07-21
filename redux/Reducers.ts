@@ -24,9 +24,7 @@ export const reducersThread = (state: IAppThreadState = initialState, action: IA
             newState.editThreadState.edit=false;
             return newState;
         case ThreadAction.REMOVE_THREAD:
-            newState.threads = [
-                ...newState.threads.filter(thread => thread.author !== action.type)
-            ];
+            newState.threads = newState.threads.filter(thread => thread.id !== action.payload.thread.id)
             return newState
         default:
             return newState;
@@ -55,7 +53,8 @@ export const reducersUser = (state: IAppUserState = initState, action: IAppUserA
             newState.editUserState.edit=false;
             return newState;
         case UserAction.REMOVE_USER:
-           // newState.users.filter((user) => action.payload !== user)
+            newState.users = newState.users.filter(user => user.id !== action.payload.user.id)
+            return newState
             
         default:
             return newState;
