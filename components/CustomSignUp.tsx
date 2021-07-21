@@ -4,6 +4,21 @@ import { TextInput, Checkbox, Button } from 'react-native-paper';
 
 export default function signUp(props){
 
+    const testPassword = '';
+
+
+
+    const addNewItemtoDB = () => {
+        const username = props.username;
+        const password = props.password;
+        const email = props.email;
+
+        props.onAdd({username, password, email})
+        props.setUsername('');
+        props.setPassword('');
+        props.setEmail('');
+    } 
+
   return (
     <View>
 
@@ -17,13 +32,13 @@ export default function signUp(props){
             label="Password"
             value={props.password}
             onChangeText={text => props.setPassword(text)}
-        />
+        />  
 
         <TextInput
-            label="Retype Password"
-            value={props.password}
+            label="Password"
+            value={testPassword}
             onChangeText={text => props.setPassword(text)}
-        />  
+        />
 
         <TextInput
             label="Email"
@@ -31,7 +46,7 @@ export default function signUp(props){
             onChangeText={text => props.setEmail(text)}
         />
 
-        <Button mode="contained" onPress={() => console.log('Pressed')}>Sign Up</Button>
+        <Button mode="contained" onPress={addNewItemtoDB}>Sign Up</Button>
 
         <Button mode="contained" onPress={props.onSignUp} style={{top: 10}}>Back to Log In</Button>
 

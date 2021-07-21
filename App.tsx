@@ -7,13 +7,13 @@ import Home  from './Screens/Home'
 import Profile from './Screens/Profile'
 import CustomNav from './components/CustomNav';
 import AddThread from './components/AddThread';
-import CustomLogInModal from './components/CustomLogInModal'
+import LogInModal from './components/CustomLogInModal'
 
 const Stack = createStackNavigator();
 
 export default function App() {
 
-  const [loggedIn, setLoggedIn] = React.useState(true);
+  const [loggedIn, setLoggedIn] = React.useState(false);
   const [addThreadVisible, setAddThreadVisible] = React.useState(false);
   const [visible, setVisible] = React.useState(false);
 
@@ -34,6 +34,15 @@ export default function App() {
       id: 1,
     }]);
 
+  const [users, setUsers] = React.useState([
+    {
+      id: 1,
+      username: "Potato",
+      password: "PotatsRCul",
+      email: "ILikePotatoes@gmail.com"
+    }
+  ])
+
 
   //Add Post
   const addPost = (thread) => {
@@ -41,6 +50,13 @@ export default function App() {
     const newPost = {id, ...thread}
     setThreads([...threads, newPost])
     console.log(threads);
+  }
+
+  const addUser = (user) => {
+    const id = Math.floor(Math.random() * 10000) + 1;
+    const newUser = {id, ...user};
+    setUsers([...users, newUser]);
+    console.log(users)
   }
 
   return (
@@ -65,7 +81,7 @@ export default function App() {
           <Stack.Screen name="Profile" component={Profile} />
         </Stack.Navigator>
         <Portal>
-          <CustomLogInModal visible={visible} setVisible={setVisible} />
+          <LogInModal visible={visible} setVisible={setVisible} onAdd={addUser}/>
           <AddThread
             visible={addThreadVisible}
             setVisible={setAddThreadVisible}

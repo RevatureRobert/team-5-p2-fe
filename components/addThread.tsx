@@ -5,7 +5,7 @@ import {iThread} from './models';
 import Thread from './Thread'
 
 
-export default function AddThread({visible, setVisible, onAdd}: {visible: any; setVisible: any; onAdd: any}) {
+export default function addThread({visible, setVisible, onAdd}: {visible: any; setVisible: any; onAdd: any}) {
     const [title, setTitle] = React.useState('')
     const [description, setDescription] = React.useState('')
     const [author, setAuthor] = React.useState('')

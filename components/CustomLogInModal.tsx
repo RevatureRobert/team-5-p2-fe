@@ -4,7 +4,7 @@ import { Appbar } from 'react-native-paper';
 import CustomLogIn from './CustomLogIn'
 import CustomSignUp from './CustomSignUp'
 
-export default function loginModal(props) {
+export default function LogInModal(props) {
 
   const [username, setUsername] = React.useState('');
   const [password, setPassword] = React.useState('');
@@ -20,8 +20,8 @@ export default function loginModal(props) {
         <Modal visible={props.visible} onDismiss={hideModal} contentContainerStyle={containerStyle}>
           <Text>
             {showSignUp 
-              ? <CustomLogIn {...props} setUsername={setUsername} setPassword={setPassword} username={username} password={password} onSignUp={() => setShowSignUp(!showSignUp)}/> 
-              : <CustomSignUp {...props} setUsername={setUsername} setPassword={setPassword} setEmail={setEmail} username={username} password={password} email={email} onSignUp={() => setShowSignUp(!showSignUp)}/>}
+              ? <CustomLogIn {...props} setUsername={setUsername} setPassword={setPassword} username={username} password={password} onSignUp={() => setShowSignUp(!showSignUp)} /> 
+              : <CustomSignUp {...props} onAdd={props.onAdd} setUsername={setUsername} setPassword={setPassword} setEmail={setEmail} username={username} password={password} email={email} onSignUp={() => setShowSignUp(!showSignUp)}/>}
           </Text>
         </Modal>
       </Portal>
