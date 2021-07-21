@@ -6,6 +6,11 @@ export default function logIn(props){
 
   const [showSignUp, setShowSignUp] = React.useState(false);
 
+  const setLoginPressed = () =>{
+    props.setLoggedIn(!props.loggedIn)
+    props.hideModal();
+  }
+
   return (
     <View>
 
@@ -23,7 +28,7 @@ export default function logIn(props){
 
         <Checkbox.Item label="Remember Me?" status="checked" />
 
-        <Button mode="contained" onPress={() => console.log('Pressed')}>Log In</Button>
+        <Button mode="contained" onPress={setLoginPressed}>Log In</Button>
 
         <Button mode="contained" onPress={props.onSignUp} style={{top: 10}}>Sign Up</Button>
 
