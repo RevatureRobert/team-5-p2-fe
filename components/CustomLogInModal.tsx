@@ -20,7 +20,7 @@ export default function LogInModal(props) {
         <Modal visible={props.visible} onDismiss={hideModal} contentContainerStyle={containerStyle}>
           <Text>
             {showSignUp 
-              ? <CustomLogIn {...props} setUsername={setUsername} setPassword={setPassword} username={username} password={password} onSignUp={() => setShowSignUp(!showSignUp)} /> 
+              ? <CustomLogIn {...props} setUsername={setUsername} setPassword={setPassword} username={username} password={password} onSignUp={() => setShowSignUp(!showSignUp)} setLoggedin={props.setLoggedIn} hideModal={hideModal}/> 
               : <CustomSignUp {...props} onAdd={props.onAdd} setUsername={setUsername} setPassword={setPassword} setEmail={setEmail} username={username} password={password} email={email} onSignUp={() => setShowSignUp(!showSignUp)}/>}
           </Text>
         </Modal>

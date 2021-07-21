@@ -81,7 +81,7 @@ export default function App() {
           <Stack.Screen name="Profile" component={Profile} />
         </Stack.Navigator>
         <Portal>
-          <LogInModal visible={visible} setVisible={setVisible} onAdd={addUser}/>
+          <LogInModal visible={visible} setVisible={setVisible} onAdd={addUser} setLoggedIn={setLoggedIn} loggedIn={loggedIn} />
           <AddThread
             visible={addThreadVisible}
             setVisible={setAddThreadVisible}

@@ -6,8 +6,6 @@ export default function signUp(props){
 
     const testPassword = '';
 
-
-
     const addNewItemtoDB = () => {
         const username = props.username;
         const password = props.password;
