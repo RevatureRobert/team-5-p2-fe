@@ -2,9 +2,9 @@ import React from 'react';
 import { View, Image, StyleSheet } from 'react-native';
 import Thread from '../components/Thread';
 import {iThread} from '../components/models'
-import {threads} from '../mockDB'
 
-export default function Home({ navigation }) {
+
+export default function Home({navigation, threads} : {threads: any; navigation: any}) {
 
    
     return (

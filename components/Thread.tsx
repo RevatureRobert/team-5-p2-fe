@@ -2,7 +2,6 @@ import React from 'react';
 import {iThread} from './models';
 import { View, Image, StyleSheet } from 'react-native';
 import { Avatar, Button, Card, Title, Paragraph } from 'react-native-paper';
-import { Colors } from 'react-native/Libraries/NewAppScreen';
 
 interface IProps {
     thread: iThread;
