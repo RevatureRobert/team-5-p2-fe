@@ -1,6 +1,9 @@
 import React, {useCallback, useState} from 'react'
 import { View,Text } from 'react-native';
 import { Modal, TextInput, Portal, Button } from 'react-native-paper';
+import {useDispatch, useSelector} from 'react-redux';
+import {ThreadAction} from '../redux/Actions';
+import {IAppThreadState} from '../redux/Store';
 import {iThread} from './models';
 import Thread from './Thread'
 
@@ -12,12 +15,32 @@ export default function addThread({visible, setVisible, onAdd}: {visible: any; s
     const [post, setPost] = React.useState('');
 
     const addNewItemtoDB = () => {
-        onAdd({title, description, author, post})
+        addClick();
+        hideModal();
         setTitle('');
         setDescription('');
         setAuthor('');
         setPost('');
     } 
+
+    const dispatch = useDispatch();
+
+    const addClick = () => {
+        dispatch({
+            type: ThreadAction.ADD_THREAD,
+           
+            payload: {
+                thread: {
+                    id: Math.floor(Math.random() * 10000) + 1,
+                    title,
+                    description,
+                    author,
+                    post,
+                }
+            }
+        }
+        )
+    }
 
 
     const hideModal = () => setVisible(false);
@@ -36,4 +59,4 @@ export default function addThread({visible, setVisible, onAdd}: {visible: any; s
             </Portal>
         </View>
     );
-};
+}

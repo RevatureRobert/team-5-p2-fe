@@ -8,8 +8,15 @@ import Profile from './Screens/Profile'
 import CustomNav from './components/CustomNav';
 import AddThread from './components/AddThread';
 import LogInModal from './components/CustomLogInModal'
+import { createStore, Store } from 'redux';
+import {IAppThreadState} from './redux/Store';
+import { IAppThreadActions } from './redux/Actions';
+import {reducersThread} from './redux/Reducers'
+import { Provider, useSelector } from 'react-redux';
+
 
 const Stack = createStackNavigator();
+const store: Store<IAppThreadState, IAppThreadActions> = createStore(reducersThread)
 
 export default function App() {
 
@@ -60,35 +67,37 @@ export default function App() {
   }
 
   return (
-    <PaperProvider>
-      <NavigationContainer>
-        <Stack.Navigator
-          initialRouteName="Home"
-          screenOptions={{
-            header: (props: any) => (
-              <CustomNav
-                {...props}
-                loggedIn={loggedIn}
-                setVisible={setVisible}
-                setAddThreadVisible={setAddThreadVisible}
-              />
-            ), //Use Custom Navigator Bar
-          }}
-        >
-          <Stack.Screen name="Home">
-            {(props) => <Home {...props} threads={threads} />}
-          </Stack.Screen>
-          <Stack.Screen name="Profile" component={Profile} />
-        </Stack.Navigator>
-        <Portal>
-          <LogInModal visible={visible} setVisible={setVisible} onAdd={addUser} setLoggedIn={setLoggedIn} loggedIn={loggedIn} />
-          <AddThread
-            visible={addThreadVisible}
-            setVisible={setAddThreadVisible}
-            onAdd={addPost}
-          />
-        </Portal>
-      </NavigationContainer>
-    </PaperProvider>
+    <Provider store={store}>
+      <PaperProvider>
+        <NavigationContainer>
+          <Stack.Navigator
+            initialRouteName="Home"
+            screenOptions={{
+              header: (props: any) => (
+                <CustomNav
+                  {...props}
+                  loggedIn={loggedIn}
+                  setVisible={setVisible}
+                  setAddThreadVisible={setAddThreadVisible}
+                />
+              ), //Use Custom Navigator Bar
+            }}
+          >
+            <Stack.Screen name="Home">
+              {(props) => <Home {...props}/>}
+            </Stack.Screen>
+            <Stack.Screen name="Profile" component={Profile} />
+          </Stack.Navigator>
+          <Portal>
+            <LogInModal visible={visible} setVisible={setVisible} onAdd={addUser} setLoggedIn={setLoggedIn} loggedIn={loggedIn} />
+            <AddThread
+              visible={addThreadVisible}
+              setVisible={setAddThreadVisible}
+              onAdd={addPost}
+            />
+          </Portal>
+        </NavigationContainer>
+      </PaperProvider>
+    </Provider>
   );
 }
