@@ -1,53 +1,54 @@
 import * as React from 'react';
-import { View,Text } from 'react-native';
-import { TextInput, Checkbox, Button } from 'react-native-paper';
+import { View } from 'react-native';
+import { TextInput, Button } from 'react-native-paper';
+import { useDispatch } from 'react-redux';
+import { UserAction } from '../redux/Actions';
 
 export default function signUp(props){
+    const dispatch = useDispatch();
 
-    const testPassword = '';
+    const [username, setUsername] = React.useState('');
+    const [password, setPassword] = React.useState('');
+    const [email, setEmail] = React.useState('');
 
-    const addNewItemtoDB = () => {
-        const username = props.username;
-        const password = props.password;
-        const email = props.email;
+    const onSignUpSubmit = () => {
+        addNewUser();
+        props.hideModal();
+    }
 
-        props.onAdd({username, password, email})
-        props.setUsername('');
-        props.setPassword('');
-        props.setEmail('');
-    } 
+    const addNewUser = () => {
+        dispatch({
+            type: UserAction.ADD_USER,
+            payload: {
+                user: {
+                    id: Math.floor(Math.random() * 10000) + 1,
+                    username,
+                    password,
+                    email,
+                }
+            }
+        })
+    }
 
   return (
     <View>
-
         <TextInput
             label="Username"
-            value={props.username}
-            onChangeText={text => props.setUsername(text)}
+            value={username}
+            onChangeText={text => setUsername(text)}
         />
-
         <TextInput
             label="Password"
-            value={props.password}
-            onChangeText={text => props.setPassword(text)}
+            value={password}
+            onChangeText={text => setPassword(text)}
         />  
-
-        <TextInput
-            label="Password"
-            value={testPassword}
-            onChangeText={text => props.setPassword(text)}
-        />
-
         <TextInput
             label="Email"
-            value={props.email}
-            onChangeText={text => props.setEmail(text)}
+            value={email}
+            onChangeText={text => setEmail(text)}
         />
-
-        <Button mode="contained" onPress={addNewItemtoDB}>Sign Up</Button>
-
+        <Button mode="contained" onPress={onSignUpSubmit}>Sign Up</Button>
         <Button mode="contained" onPress={props.onSignUp} style={{top: 10}}>Back to Log In</Button>
-
     </View>
     
   );

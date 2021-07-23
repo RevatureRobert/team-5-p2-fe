@@ -7,7 +7,10 @@ export default function CustomLogInModal(props) {
 
   const [showSignUp, setShowSignUp] = React.useState(true);
 
-  const hideModal = () => props.setVisible(false);
+  const hideModal = () => {
+    props.setVisible(false);
+    setShowSignUp(true);
+  };
   const containerStyle = {backgroundColor: 'white', padding: 20, margin: 'auto'};
 
   return (
@@ -17,7 +20,7 @@ export default function CustomLogInModal(props) {
           <Text>
             {showSignUp 
               ? <CustomLogIn {...props} onSignUp={() => setShowSignUp(!showSignUp)} hideModal={hideModal}/> 
-              : <CustomSignUp {...props} onSignUp={() => setShowSignUp(!showSignUp)}/>}
+              : <CustomSignUp {...props} onSignUp={() => setShowSignUp(!showSignUp)} hideModal={hideModal}/>}
           </Text>
         </Modal>
       </Portal>
