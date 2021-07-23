@@ -7,7 +7,7 @@ import Home  from './Screens/Home'
 import Profile from './Screens/Profile'
 import CustomNav from './components/CustomNav';
 import AddThread from './components/AddThread';
-import LogInModal from './components/CustomLogInModal'
+import CustomLogInModal from './components/CustomLogInModal'
 import { combineReducers, createStore, Store } from 'redux';
 import {IAppState} from './redux/Store';
 import { IAppActions, IAppThreadActions, IAppUserActions } from './redux/Actions';
@@ -22,7 +22,6 @@ const store: Store<IAppState, IAppUserActions | IAppThreadActions> = createStore
 
 export default function App() {
 
-  const [loggedIn, setLoggedIn] = React.useState(false);
   const [addThreadVisible, setAddThreadVisible] = React.useState(false);
   const [visible, setVisible] = React.useState(false);
 
@@ -78,7 +77,6 @@ export default function App() {
               header: (props: any) => (
                 <CustomNav
                   {...props}
-                  loggedIn={loggedIn}
                   setVisible={setVisible}
                   setAddThreadVisible={setAddThreadVisible}
                 />
@@ -91,7 +89,7 @@ export default function App() {
             <Stack.Screen name="Profile" component={Profile} />
           </Stack.Navigator>
           <Portal>
-            <LogInModal visible={visible} setVisible={setVisible} onAdd={addUser} setLoggedIn={setLoggedIn} loggedIn={loggedIn} />
+            <CustomLogInModal visible={visible} setVisible={setVisible} onAdd={addUser} />
             <AddThread
               visible={addThreadVisible}
               setVisible={setAddThreadVisible}

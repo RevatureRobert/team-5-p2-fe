@@ -55,7 +55,9 @@ export const reducersUser = (state: IAppUserState = initState, action: IAppUserA
         case UserAction.REMOVE_USER:
             newState.users = newState.users.filter(user => user.id !== action.payload.user.id)
             return newState
-            
+        case UserAction.LOGIN_USER: 
+            newState.loggedIn = true;
+            return newState;
         default:
             return newState;
     }

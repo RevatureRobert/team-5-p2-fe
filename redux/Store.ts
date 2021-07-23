@@ -43,11 +43,13 @@ export interface IEditUserState {
 }
 
 export interface IAppUserState {
+    loggedIn: boolean;
     editUserState: IEditUserState;
     users: iUser[];
 }
 
 export const initState: IAppUserState = {
+    loggedIn: false,
     editUserState: {
         currentUser: -1,
         edit: false
