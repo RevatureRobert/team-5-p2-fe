@@ -16,7 +16,7 @@ export default function addThread({visible, setVisible}: {visible: any; setVisib
     const [post, setPost] = React.useState('');
 
     const onAddSubmit = () => {
-        addNewItemtoDB();
+        addNewThread();
         hideModal();
         setTitle('');
         setDescription('');
@@ -25,7 +25,7 @@ export default function addThread({visible, setVisible}: {visible: any; setVisib
     } 
 
 
-    const addNewItemtoDB = () => {
+    const addNewThread = () => {
         dispatch({
             type: ThreadAction.ADD_THREAD,
             payload: {
