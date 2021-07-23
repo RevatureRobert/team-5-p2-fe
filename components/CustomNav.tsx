@@ -1,12 +1,12 @@
 import React from 'react'
-import { View,Text } from 'react-native';
+import { View } from 'react-native';
 import { Appbar } from 'react-native-paper';
 import { useSelector } from 'react-redux';
 import { IAppState } from '../redux/Store';
 
 export default function CustomNav(props) {
 
-    const loggedIn = useSelector((state: IAppState) => state.user.loggedIn)
+    const loggedIn = useSelector((state: IAppState) => state.userState.loggedIn)
     return(
         <View>
             <Appbar.Header>

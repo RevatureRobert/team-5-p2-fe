@@ -3,7 +3,6 @@ export interface iThread {
     title: string;
     author: string;
     description: string;
-    post: string;
 }
 
 export interface iUser {
@@ -11,4 +10,5 @@ export interface iUser {
     username: string;
     password: string;
     email: string;
+    profile: string;
 }
