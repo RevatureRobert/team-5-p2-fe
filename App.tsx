@@ -51,15 +51,6 @@ export default function App() {
     }
   ])
 
-
-  //Add Post
-  const addPost = (thread) => {
-    const id = Math.floor(Math.random() * 10000) + 1;
-    const newPost = {id, ...thread}
-    setThreads([...threads, newPost])
-    console.log(threads);
-  }
-
   const addUser = (user) => {
     const id = Math.floor(Math.random() * 10000) + 1;
     const newUser = {id, ...user};
@@ -93,7 +84,6 @@ export default function App() {
             <AddThread
               visible={addThreadVisible}
               setVisible={setAddThreadVisible}
-              onAdd={addPost}
             />
           </Portal>
         </NavigationContainer>
