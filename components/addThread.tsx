@@ -9,13 +9,14 @@ import Thread from './Thread'
 
 
 export default function addThread({visible, setVisible, onAdd}: {visible: any; setVisible: any; onAdd: any}) {
+    const dispatch = useDispatch();
     const [title, setTitle] = React.useState('')
     const [description, setDescription] = React.useState('')
     const [author, setAuthor] = React.useState('')
     const [post, setPost] = React.useState('');
 
-    const addNewItemtoDB = () => {
-        addClick();
+    const onAddSubmit = () => {
+        addNewItemtoDB();
         hideModal();
         setTitle('');
         setDescription('');
@@ -23,12 +24,10 @@ export default function addThread({visible, setVisible, onAdd}: {visible: any; s
         setPost('');
     } 
 
-    const dispatch = useDispatch();
 
-    const addClick = () => {
+    const addNewItemtoDB = () => {
         dispatch({
             type: ThreadAction.ADD_THREAD,
-           
             payload: {
                 thread: {
                     id: Math.floor(Math.random() * 10000) + 1,
@@ -38,10 +37,8 @@ export default function addThread({visible, setVisible, onAdd}: {visible: any; s
                     post,
                 }
             }
-        }
-        )
+        })
     }
-
 
     const hideModal = () => setVisible(false);
     const containerStyle = {backgroundColor: 'white', padding: 20, margin: 'auto'};
@@ -54,7 +51,7 @@ export default function addThread({visible, setVisible, onAdd}: {visible: any; s
                     <TextInput label="Description" value={description} onChangeText= {text => setDescription(text)} />
                     <TextInput label="Author" value={author} onChangeText= {text => setAuthor(text)} />
                     <TextInput label="Post" value={post} onChangeText= {text => setPost(text)} />
-                    <Button mode= "contained" onPress={addNewItemtoDB}>Add Thread</Button>
+                    <Button mode= "contained" onPress={onAddSubmit}>Add Thread</Button>
                 </Modal>
             </Portal>
         </View>
