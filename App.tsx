@@ -10,14 +10,14 @@ import AddThread from './components/AddThread';
 import CustomLogInModal from './components/CustomLogInModal'
 import { combineReducers, createStore, Store } from 'redux';
 import {IAppState} from './redux/Store';
-import { IAppActions, IAppThreadActions, IAppUserActions } from './redux/Actions';
+import { IAppThreadActions, IAppUserActions } from './redux/Actions';
 import {reducersThread, reducersUser} from './redux/Reducers'
-import { Provider, useSelector } from 'react-redux';
+import { Provider } from 'react-redux';
 
 
 const Stack = createStackNavigator();
 
-const rootReducer = combineReducers({thread: reducersThread, user: reducersUser})
+const rootReducer = combineReducers({threadState: reducersThread, userState: reducersUser})
 const store: Store<IAppState, IAppUserActions | IAppThreadActions> = createStore(rootReducer)
 
 export default function App() {

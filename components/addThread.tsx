@@ -1,7 +1,7 @@
 import React, {useCallback, useState} from 'react'
 import { View,Text } from 'react-native';
 import { Modal, TextInput, Portal, Button } from 'react-native-paper';
-import {useDispatch, useSelector} from 'react-redux';
+import {useDispatch} from 'react-redux';
 import {ThreadAction} from '../redux/Actions';
 import {IAppThreadState} from '../redux/Store';
 import {iThread} from './models';
