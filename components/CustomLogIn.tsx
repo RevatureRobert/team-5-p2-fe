@@ -6,7 +6,7 @@ import { UserAction } from '../redux/Actions';
 
 export default function logIn(props){
   const dispatch = useDispatch();
-  const [showSignUp, setShowSignUp] = React.useState(false);
+
   const [username, setUsername] = React.useState('');
   const [password, setPassword] = React.useState('');
 

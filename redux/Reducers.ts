@@ -58,6 +58,8 @@ export const reducersUser = (state: IAppUserState = initState, action: IAppUserA
         case UserAction.LOGIN_USER: 
             newState.loggedIn = true;
             return newState;
+        case UserAction.LOGOUT_USER:
+            newState.loggedIn = false;
         default:
             return newState;
     }

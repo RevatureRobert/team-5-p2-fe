@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { Modal, Portal, Text, Button, Provider } from 'react-native-paper';
-import { Appbar } from 'react-native-paper';
 import CustomLogIn from './CustomLogIn'
 import CustomSignUp from './CustomSignUp'
 
@@ -17,8 +16,8 @@ export default function CustomLogInModal(props) {
         <Modal visible={props.visible} onDismiss={hideModal} contentContainerStyle={containerStyle}>
           <Text>
             {showSignUp 
-              ? <CustomLogIn {...props}  onSignUp={() => setShowSignUp(!showSignUp)} hideModal={hideModal}/> 
-              : <CustomSignUp {...props} onAdd={props.onAdd} onSignUp={() => setShowSignUp(!showSignUp)}/>}
+              ? <CustomLogIn {...props} onSignUp={() => setShowSignUp(!showSignUp)} hideModal={hideModal}/> 
+              : <CustomSignUp {...props} onSignUp={() => setShowSignUp(!showSignUp)}/>}
           </Text>
         </Modal>
       </Portal>
