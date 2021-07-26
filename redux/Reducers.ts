@@ -6,13 +6,9 @@ export const reducersThread = (state: IAppThreadState = initialState, action: IA
     switch(action.type){
         case ThreadAction.ADD_THREAD:
             newState.threads.push(action.payload.thread)
-            
-            console.log(newState)
             return newState;
         case ThreadAction.SELECT_THREAD:
-            
             return newState;
-        
         case ThreadAction.REMOVE_THREAD:
             newState.threads = newState.threads.filter(thread => thread.id !== action.payload.thread.id)
             return newState
@@ -42,6 +38,7 @@ export const reducersUser = (state: IAppUserState = initState, action: IAppUserA
             return newState;
         case UserAction.LOGOUT_USER:
             newState.loggedIn = false;
+            return newState;
         default:
             return newState;
     }

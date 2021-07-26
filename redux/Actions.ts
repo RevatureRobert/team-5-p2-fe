@@ -9,7 +9,7 @@ export enum ThreadAction {
     ADD_THREAD = 'Add Thread',
     REMOVE_THREAD = 'Remove Thread',
     EDIT_THREAD = 'Edit Thread',
-    SELECT_THREAD = 'Select Thread' 
+    SELECT_THREAD = 'Select Thread' ,
 }
 export interface IThreadActions {
     type: ThreadAction;
