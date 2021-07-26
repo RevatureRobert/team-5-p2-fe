@@ -4,11 +4,8 @@ import { Appbar } from 'react-native-paper';
 import CustomLogIn from './CustomLogIn'
 import CustomSignUp from './CustomSignUp'
 
-export default function LogInModal(props) {
+export default function CustomLogInModal(props) {
 
-  const [username, setUsername] = React.useState('');
-  const [password, setPassword] = React.useState('');
-  const [email, setEmail] = React.useState('');
   const [showSignUp, setShowSignUp] = React.useState(true);
 
   const hideModal = () => props.setVisible(false);
@@ -20,8 +17,8 @@ export default function LogInModal(props) {
         <Modal visible={props.visible} onDismiss={hideModal} contentContainerStyle={containerStyle}>
           <Text>
             {showSignUp 
-              ? <CustomLogIn {...props} setUsername={setUsername} setPassword={setPassword} username={username} password={password} onSignUp={() => setShowSignUp(!showSignUp)} setLoggedin={props.setLoggedIn} hideModal={hideModal}/> 
-              : <CustomSignUp {...props} onAdd={props.onAdd} setUsername={setUsername} setPassword={setPassword} setEmail={setEmail} username={username} password={password} email={email} onSignUp={() => setShowSignUp(!showSignUp)}/>}
+              ? <CustomLogIn {...props}  onSignUp={() => setShowSignUp(!showSignUp)} hideModal={hideModal}/> 
+              : <CustomSignUp {...props} onAdd={props.onAdd} onSignUp={() => setShowSignUp(!showSignUp)}/>}
           </Text>
         </Modal>
       </Portal>

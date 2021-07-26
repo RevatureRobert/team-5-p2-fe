@@ -7,13 +7,21 @@ import Home  from './Screens/Home'
 import Profile from './Screens/Profile'
 import CustomNav from './components/CustomNav';
 import AddThread from './components/AddThread';
-import LogInModal from './components/CustomLogInModal'
+import CustomLogInModal from './components/CustomLogInModal'
+import { combineReducers, createStore, Store } from 'redux';
+import {IAppState} from './redux/Store';
+import { IAppActions, IAppThreadActions, IAppUserActions } from './redux/Actions';
+import {reducersThread, reducersUser} from './redux/Reducers'
+import { Provider, useSelector } from 'react-redux';
+
 
 const Stack = createStackNavigator();
 
+const rootReducer = combineReducers({thread: reducersThread, user: reducersUser})
+const store: Store<IAppState, IAppUserActions | IAppThreadActions> = createStore(rootReducer)
+
 export default function App() {
 
-  const [loggedIn, setLoggedIn] = React.useState(false);
   const [addThreadVisible, setAddThreadVisible] = React.useState(false);
   const [visible, setVisible] = React.useState(false);
 
@@ -43,15 +51,6 @@ export default function App() {
     }
   ])
 
-
-  //Add Post
-  const addPost = (thread) => {
-    const id = Math.floor(Math.random() * 10000) + 1;
-    const newPost = {id, ...thread}
-    setThreads([...threads, newPost])
-    console.log(threads);
-  }
-
   const addUser = (user) => {
     const id = Math.floor(Math.random() * 10000) + 1;
     const newUser = {id, ...user};
@@ -60,35 +59,35 @@ export default function App() {
   }
 
   return (
-    <PaperProvider>
-      <NavigationContainer>
-        <Stack.Navigator
-          initialRouteName="Home"
-          screenOptions={{
-            header: (props: any) => (
-              <CustomNav
-                {...props}
-                loggedIn={loggedIn}
-                setVisible={setVisible}
-                setAddThreadVisible={setAddThreadVisible}
-              />
-            ), //Use Custom Navigator Bar
-          }}
-        >
-          <Stack.Screen name="Home">
-            {(props) => <Home {...props} threads={threads} />}
-          </Stack.Screen>
-          <Stack.Screen name="Profile" component={Profile} />
-        </Stack.Navigator>
-        <Portal>
-          <LogInModal visible={visible} setVisible={setVisible} onAdd={addUser} setLoggedIn={setLoggedIn} loggedIn={loggedIn} />
-          <AddThread
-            visible={addThreadVisible}
-            setVisible={setAddThreadVisible}
-            onAdd={addPost}
-          />
-        </Portal>
-      </NavigationContainer>
-    </PaperProvider>
+    <Provider store={store} >
+      <PaperProvider>
+        <NavigationContainer>
+          <Stack.Navigator
+            initialRouteName="Home"
+            screenOptions={{
+              header: (props: any) => (
+                <CustomNav
+                  {...props}
+                  setVisible={setVisible}
+                  setAddThreadVisible={setAddThreadVisible}
+                />
+              ), //Use Custom Navigator Bar
+            }}
+          >
+            <Stack.Screen name="Home">
+              {(props) => <Home {...props}/>}
+            </Stack.Screen>
+            <Stack.Screen name="Profile" component={Profile} />
+          </Stack.Navigator>
+          <Portal>
+            <CustomLogInModal visible={visible} setVisible={setVisible} onAdd={addUser} />
+            <AddThread
+              visible={addThreadVisible}
+              setVisible={setAddThreadVisible}
+            />
+          </Portal>
+        </NavigationContainer>
+      </PaperProvider>
+    </Provider>
   );
 }
