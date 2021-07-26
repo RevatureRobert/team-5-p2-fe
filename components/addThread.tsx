@@ -1,11 +1,8 @@
-import React, {useCallback, useState} from 'react'
+import React from 'react'
 import { View,Text } from 'react-native';
 import { Modal, TextInput, Portal, Button } from 'react-native-paper';
-import {useDispatch, useSelector} from 'react-redux';
+import {useDispatch} from 'react-redux';
 import {ThreadAction} from '../redux/Actions';
-import {IAppThreadState} from '../redux/Store';
-import {iThread} from './models';
-import Thread from './Thread'
 
 
 export default function addThread({visible, setVisible}: {visible: any; setVisible: any;}) {
@@ -16,7 +13,7 @@ export default function addThread({visible, setVisible}: {visible: any; setVisib
     const [post, setPost] = React.useState('');
 
     const onAddSubmit = () => {
-        addNewItemtoDB();
+        addNewThread();
         hideModal();
         setTitle('');
         setDescription('');
@@ -25,7 +22,7 @@ export default function addThread({visible, setVisible}: {visible: any; setVisib
     } 
 
 
-    const addNewItemtoDB = () => {
+    const addNewThread = () => {
         dispatch({
             type: ThreadAction.ADD_THREAD,
             payload: {

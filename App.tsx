@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import React, { useState } from 'react';
+import React from 'react';
 import { Portal, Provider as PaperProvider } from 'react-native-paper';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -10,53 +10,20 @@ import AddThread from './components/AddThread';
 import CustomLogInModal from './components/CustomLogInModal'
 import { combineReducers, createStore, Store } from 'redux';
 import {IAppState} from './redux/Store';
-import { IAppActions, IAppThreadActions, IAppUserActions } from './redux/Actions';
+import { IAppThreadActions, IAppUserActions } from './redux/Actions';
 import {reducersThread, reducersUser} from './redux/Reducers'
-import { Provider, useSelector } from 'react-redux';
+import { Provider } from 'react-redux';
 
 
 const Stack = createStackNavigator();
 
-const rootReducer = combineReducers({thread: reducersThread, user: reducersUser})
+const rootReducer = combineReducers({threadState: reducersThread, userState: reducersUser})
 const store: Store<IAppState, IAppUserActions | IAppThreadActions> = createStore(rootReducer)
 
 export default function App() {
 
   const [addThreadVisible, setAddThreadVisible] = React.useState(false);
   const [visible, setVisible] = React.useState(false);
-
-  
-  const [threads, setThreads] = React.useState([
-    {
-      title: "Testing Boi 1",
-      author: "Jacob",
-      description: "IDK if this will work or not?",
-      post: "This is a test to see if this will work",
-      id: 0,
-    },
-    {
-      title: "Hey",
-      author: "Tyler",
-      description: "This is also a test",
-      post: "Trying to get this all to work",
-      id: 1,
-    }]);
-
-  const [users, setUsers] = React.useState([
-    {
-      id: 1,
-      username: "Potato",
-      password: "PotatsRCul",
-      email: "ILikePotatoes@gmail.com"
-    }
-  ])
-
-  const addUser = (user) => {
-    const id = Math.floor(Math.random() * 10000) + 1;
-    const newUser = {id, ...user};
-    setUsers([...users, newUser]);
-    console.log(users)
-  }
 
   return (
     <Provider store={store} >
@@ -77,10 +44,12 @@ export default function App() {
             <Stack.Screen name="Home">
               {(props) => <Home {...props}/>}
             </Stack.Screen>
-            <Stack.Screen name="Profile" component={Profile} />
+            <Stack.Screen name="Profile">
+              {(props) => <Profile {...props}/>}
+            </Stack.Screen>
           </Stack.Navigator>
           <Portal>
-            <CustomLogInModal visible={visible} setVisible={setVisible} onAdd={addUser} />
+            <CustomLogInModal visible={visible} setVisible={setVisible} />
             <AddThread
               visible={addThreadVisible}
               setVisible={setAddThreadVisible}
