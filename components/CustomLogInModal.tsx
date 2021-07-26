@@ -3,6 +3,7 @@ import { Modal, Portal, Text, Button, Provider } from 'react-native-paper';
 import { Appbar } from 'react-native-paper';
 import CustomLogIn from './CustomLogIn'
 import CustomSignUp from './CustomSignUp'
+import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react'
 
 export default function CustomLogInModal(props) {
 

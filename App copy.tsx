@@ -14,8 +14,6 @@ import { IAppActions, IAppThreadActions, IAppUserActions } from './redux/Actions
 import {reducersThread, reducersUser} from './redux/Reducers'
 import { Provider, useSelector } from 'react-redux';
 import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react'
-import { Auth } from 'aws-amplify';
-import { iUser } from './components/models';
 
 import Amplify from 'aws-amplify';
 import config from './aws-exports';
@@ -24,17 +22,32 @@ Amplify.configure(config);
 
 
 const Stack = createStackNavigator();
+
 const rootReducer = combineReducers({thread: reducersThread, user: reducersUser})
 const store: Store<IAppState, IAppUserActions | IAppThreadActions> = createStore(rootReducer)
-
-
-
-
 
 export default function App() {
 
   const [addThreadVisible, setAddThreadVisible] = React.useState(false);
   const [visible, setVisible] = React.useState(false);
+  const [log, tryLog] = React.useState(false);
+
+  
+  const [threads, setThreads] = React.useState([
+    {
+      title: "Testing Boi 1",
+      author: "Jacob",
+      description: "IDK if this will work or not?",
+      post: "This is a test to see if this will work",
+      id: 0,
+    },
+    {
+      title: "Hey",
+      author: "Tyler",
+      description: "This is also a test",
+      post: "Trying to get this all to work",
+      id: 1,
+    }]);
 
   const [users, setUsers] = React.useState([
     {
@@ -45,7 +58,6 @@ export default function App() {
     }
   ])
 
-  
   const addUser = (user) => {
     const id = Math.floor(Math.random() * 10000) + 1;
     const newUser = {id, ...user};
@@ -72,9 +84,7 @@ export default function App() {
             <Stack.Screen name="Home">
               {(props) => <Home {...props}/>}
             </Stack.Screen>
-            <Stack.Screen name="Profile">
-             {(props) => <Profile {...props}/>}
-            </Stack.Screen>
+            <Stack.Screen name="Profile" component={Profile} />
           </Stack.Navigator>
           <Portal>
             <CustomLogInModal visible={visible} setVisible={setVisible} onAdd={addUser} />

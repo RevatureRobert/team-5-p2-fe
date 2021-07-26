@@ -3,6 +3,8 @@ import { View,Text } from 'react-native';
 import { Appbar } from 'react-native-paper';
 import { useSelector } from 'react-redux';
 import { IAppState } from '../redux/Store';
+import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react';
+
 
 export default function CustomNav(props) {
 

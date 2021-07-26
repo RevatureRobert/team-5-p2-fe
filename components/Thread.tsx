@@ -13,8 +13,7 @@ const Threads: React.FC<IProps> = (props: IProps) =>{
             <Card style = {card.thread}>
                 <Card.Title title = {props.thread.title} subtitle= {props.thread.author}/>
                 <Card.Content>
-                    <Title style={card.text}>{props.thread.description}</Title>
-                    <Paragraph>{props.thread.post}</Paragraph>
+                    <Paragraph style={card.text}>{props.thread.description}</Paragraph>
                 {/* <Card.Cover style = {images.size} source={{ uri: 'https://picsum.photos/700' }}/> */}
                 </Card.Content>
                 <Card.Actions>

@@ -28,7 +28,8 @@ export enum UserAction {
     REMOVE_USER = 'Remove User',
     EDIT_USER = 'Edit User',
     SELECT_USER = 'Select User',
-    LOGIN_USER = 'Login User'
+    LOGIN_USER = 'Login User',
+    LOGOUT_USER = 'Logout User'
 }
 
 export interface IUserActions {
