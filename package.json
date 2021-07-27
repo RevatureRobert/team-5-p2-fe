@@ -8,9 +8,12 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@aws-amplify/cli": "^5.1.2",
+    "@aws-amplify/ui-react": "^1.2.7",
     "@react-native-community/masked-view": "0.1.10",
     "@react-navigation/native": "^5.9.4",
     "@react-navigation/stack": "^5.14.5",
+    "aws-amplify": "^4.2.1",
     "expo": "~42.0.1",
     "expo-status-bar": "~1.0.4",
     "react": "16.13.1",
