@@ -24,7 +24,7 @@ Amplify.configure(config);
 
 
 const Stack = createStackNavigator();
-const rootReducer = combineReducers({thread: reducersThread, user: reducersUser})
+const rootReducer = combineReducers({threadState: reducersThread, userState: reducersUser})
 const store: Store<IAppState, IAppUserActions | IAppThreadActions> = createStore(rootReducer)
 
 
