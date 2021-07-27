@@ -2,7 +2,7 @@ import * as React from 'react';
 import { View } from 'react-native';
 import { TextInput, Button } from 'react-native-paper';
 import { useDispatch } from 'react-redux';
-import { UserAction } from '../redux/types/action_types';
+import { UserAction } from '../custom_types/action_types';
 
 export default function signUp(props){
     const dispatch = useDispatch();

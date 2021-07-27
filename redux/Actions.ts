@@ -1,5 +1,5 @@
 import axios from "axios";
-import { ThreadAction } from "./types/action_types"
+import { ThreadAction } from "../custom_types/action_types"
 
 //Fetch All Threads Action
 export function fetchThreads() {

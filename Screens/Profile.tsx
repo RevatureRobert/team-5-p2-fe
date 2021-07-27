@@ -2,7 +2,7 @@ import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import { Avatar, Button, Card, Divider, Headline, Paragraph, Subheading, Title } from 'react-native-paper';
 import { useDispatch } from 'react-redux';
-import { UserAction } from '../redux/types/action_types';
+import { UserAction } from '../custom_types/action_types';
 
 export default function Profile({navigation}) {
     const dispatch = useDispatch();

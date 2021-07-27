@@ -1,5 +1,5 @@
 import React from 'react';
-import {iThread} from './models';
+import {iThread} from '../custom_types/object_types';
 import { View, Image, StyleSheet } from 'react-native';
 import { Avatar, Button, Card, Title, Paragraph } from 'react-native-paper';
 
@@ -13,8 +13,7 @@ const Threads: React.FC<IProps> = (props: IProps) =>{
             <Card style = {card.thread}>
                 <Card.Title title = {props.thread.title} subtitle= {props.thread.author}/>
                 <Card.Content>
-                    <Title style={card.text}>{props.thread.description}</Title>
-                    <Paragraph>{props.thread.post}</Paragraph>
+                    <Paragraph>{props.thread.description}</Paragraph>
                 {/* <Card.Cover style = {images.size} source={{ uri: 'https://picsum.photos/700' }}/> */}
                 </Card.Content>
                 <Card.Actions>

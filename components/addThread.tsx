@@ -2,7 +2,7 @@ import React from 'react'
 import { View,Text } from 'react-native';
 import { Modal, TextInput, Portal, Button } from 'react-native-paper';
 import {useDispatch} from 'react-redux';
-import {ThreadAction} from '../redux/types/action_types';
+import {ThreadAction} from '../custom_types/action_types';
 
 
 export default function addThread({visible, setVisible}: {visible: any; setVisible: any;}) {
