@@ -5,8 +5,7 @@ import {iThread} from '../custom_types/object_types'
 import { useSelector } from 'react-redux';
 import {IAppState} from '../redux/Store';
 import {useDispatch} from 'react-redux';
-import addThread from '../components/AddThread';
-import { fetchThreads } from '../redux/Actions';
+import { fetchThreads } from '../redux/Thunks';
 
 const onMountFetch = (someFetchActionCreator) => { //Fetch All Threads
     const dispatch = useDispatch();
