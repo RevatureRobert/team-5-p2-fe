@@ -8,17 +8,18 @@ import Profile from './Screens/Profile'
 import CustomNav from './components/CustomNav';
 import AddThread from './components/AddThread';
 import CustomLogInModal from './components/CustomLogInModal'
-import { combineReducers, createStore, Store } from 'redux';
+import { combineReducers, createStore, Store, applyMiddleware } from 'redux';
 import {IAppState} from './redux/Store';
 import { IAppThreadActions, IAppUserActions } from './redux/Actions';
 import {reducersThread, reducersUser} from './redux/Reducers'
 import { Provider } from 'react-redux';
+import thunk from 'redux-thunk';
 
 
 const Stack = createStackNavigator();
 
-const rootReducer = combineReducers({threadState: reducersThread, userState: reducersUser})
-const store: Store<IAppState, IAppUserActions | IAppThreadActions> = createStore(rootReducer)
+const rootReducer = combineReducers({threadState: reducersThread, userState: reducersUser});
+const store: Store<IAppState, IAppUserActions | IAppThreadActions> = createStore(rootReducer, applyMiddleware(thunk));
 
 export default function App() {
 

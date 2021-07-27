@@ -9,15 +9,28 @@ import axios from 'axios';
 import {useDispatch} from 'react-redux';
 import addThread from '../components/AddThread';
 import {ThreadAction} from '../redux/Actions';
+import { fetchThreads } from '../redux/actions/index';
+
+const useFetching = (someFetchActionCreator) => {
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(someFetchActionCreator());
+    }, []);
+}
 
 export default function Home({navigation}) {
 
+    useFetching(fetchThreads);
+
     const threads = useSelector((state:IAppState) => state.threadState.threads);
     
-    const dispatch = useDispatch();
-    useEffect(() => {
-        getAllThreads();
-    })
+    // const dispatch = useDispatch();
+    // useEffect(() => {
+    //     fetchThreads();
+    //     // getAllThreads();
+    // })
+
+   
 
     const getAllThreads = async () => {
         try{

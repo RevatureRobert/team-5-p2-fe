@@ -12,6 +12,18 @@ export const reducersThread = (state: IAppThreadState = initialState, action: IA
         case ThreadAction.REMOVE_THREAD:
             newState.threads = newState.threads.filter(thread => thread.id !== action.payload.thread.id)
             return newState
+        case ThreadAction.GET_ALL:
+            const data = action.payload;
+            for (let i = 0; i < 10; i++) {
+                newState.threads.push({
+                    id: data[i].id,
+                    title: data[i].title,
+                    description: data[i].body,
+                    author: 'author ' + data[i].userId,
+                })
+            }
+            console.log('Get_all_action')
+            return newState;
         default:
             return newState;
     }

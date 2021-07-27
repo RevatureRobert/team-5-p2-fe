@@ -6,6 +6,7 @@ export interface IAppActions {
 }
 
 export enum ThreadAction {
+    GET_ALL = 'Get All',
     ADD_THREAD = 'Add Thread',
     REMOVE_THREAD = 'Remove Thread',
     EDIT_THREAD = 'Edit Thread',
