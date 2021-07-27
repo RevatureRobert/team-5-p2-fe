@@ -1,29 +1,40 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import { Avatar, Button, Card, Divider, Headline, Paragraph, Subheading, Title } from 'react-native-paper';
+import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react'
+import { Auth } from 'aws-amplify';
 import { useDispatch } from 'react-redux';
 import { UserAction } from '../redux/Actions';
 
 export default function Profile({navigation}) {
     const dispatch = useDispatch();
 
-    const onLogOutPress = () => {
+    const onSignOutPress = () => {
+        signOut();
         logOutDispatcher();
-        navigation.navigate('Home');
+        navigation.navigate('Home')
+    }
+
+    async function signOut() {
+        try {
+            await Auth.signOut();
+            console.log('User Successfully Logged out')
+        } catch (error) {
+            console.log('error signing out: ', error);
+        }
     }
 
     const logOutDispatcher = () => {
         dispatch({
-            type: UserAction.LOGOUT_USER,
-            payload: {
-                user: { //TODO insert current user info
-                    id: null,
-                    username: null,
-                    password: null,
-                    email: null,
-                }
-            }
+        type: UserAction.LOGOUT_USER,
+        payload: {
+        }
+        
         })
+    }
+    const onLogOutPress = () => {
+        logOutDispatcher();
+        navigation.navigate('Home');
     }
     return (
         <View>
@@ -36,6 +47,7 @@ export default function Profile({navigation}) {
                     </Paragraph>
                     <Divider/>
                 <Card.Content>
+                    <Button style={profileStyle.button} mode="outlined" onPress={onSignOutPress}>Sign Out</Button>
                     <Button style={profileStyle.button} mode="outlined">Edit</Button>
                     <Button style={profileStyle.button} onPress={onLogOutPress}   mode="outlined">Logout</Button>
                     <Button style={profileStyle.button} mode="contained">Delete</Button>
