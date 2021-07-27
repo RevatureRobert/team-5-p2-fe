@@ -1,29 +1,37 @@
 import * as React from 'react';
-import { View,Text } from 'react-native';
-import { TextInput, Checkbox, Button } from 'react-native-paper';
+import { View } from 'react-native';
+import { TextInput, Button } from 'react-native-paper';
+import { useDispatch } from 'react-redux';
+import { UserAction } from '../redux/Actions';
 import { Auth } from 'aws-amplify'
 
-
 export default function signUp(props){
+    const dispatch = useDispatch();
 
-    const testPassword = '';
-
-    const [showSignUp, setShowSignUp] = React.useState(false);
     const [username, setUsername] = React.useState('');
     const [password, setPassword] = React.useState('');
-    const [verifyPassword, setVerifyPassword] = React.useState('');
     const [email, setEmail] = React.useState('');
     const [authName, setAuthName] = React.useState('');
     const [authCode, setAuthCode] = React.useState('');
 
-    const addNewItemtoDB = () => {
+    const onSignUpSubmit = () => {
+        addNewUser();
+        props.hideModal();
+    }
 
-        props.onAdd({username, password, email})
-        signUp();
-        setUsername('');
-        setPassword('');
-        setEmail('');
-    } 
+    const addNewUser = () => {
+        dispatch({
+            type: UserAction.ADD_USER,
+            payload: {
+                user: {
+                    id: Math.floor(Math.random() * 10000) + 1,
+                    username,
+                    password,
+                    email,
+                }
+            }
+        })
+    }
 
     async function signUp() {
         try {
@@ -56,33 +64,22 @@ export default function signUp(props){
 
   return (
     <View>
-
         <TextInput
             label="Username"
             value={username}
             onChangeText={text => setUsername(text)}
         />
-
         <TextInput
             label="Password"
             value={password}
             onChangeText={text => setPassword(text)}
         />  
-
-        <TextInput
-            label="Password"
-            value={verifyPassword}
-            onChangeText={text => setVerifyPassword(text)}
-        />
-
         <TextInput
             label="Email"
             value={email}
             onChangeText={text => setEmail(text)}
         />
-
-        <Button mode="contained" onPress={addNewItemtoDB}>Sign Up</Button>
-
+        <Button mode="contained" onPress={onSignUpSubmit}>Sign Up</Button>
         <Button mode="contained" onPress={props.onSignUp} style={{top: 10}}>Back to Log In</Button>
 
         <TextInput

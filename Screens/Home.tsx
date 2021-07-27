@@ -9,7 +9,7 @@ import { IAppThreadActions } from '../redux/Actions';
 
 export default function Home({navigation}) {
 
-   const threads = useSelector((state:IAppState) => state.thread.threads);
+   const threads = useSelector((state:IAppState) => state.threadState.threads);
 
     return (
     <View>

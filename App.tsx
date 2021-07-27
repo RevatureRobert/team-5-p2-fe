@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import React, { useState } from 'react';
+import React from 'react';
 import { Portal, Provider as PaperProvider } from 'react-native-paper';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -10,7 +10,7 @@ import AddThread from './components/AddThread';
 import CustomLogInModal from './components/CustomLogInModal'
 import { combineReducers, createStore, Store } from 'redux';
 import {IAppState} from './redux/Store';
-import { IAppActions, IAppThreadActions, IAppUserActions } from './redux/Actions';
+import { IAppThreadActions, IAppUserActions } from './redux/Actions';
 import {reducersThread, reducersUser} from './redux/Reducers'
 import { Provider, useSelector } from 'react-redux';
 import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react'
@@ -36,23 +36,6 @@ export default function App() {
   const [addThreadVisible, setAddThreadVisible] = React.useState(false);
   const [visible, setVisible] = React.useState(false);
 
-  const [users, setUsers] = React.useState([
-    {
-      id: 1,
-      username: "Potato",
-      password: "PotatsRCul",
-      email: "ILikePotatoes@gmail.com"
-    }
-  ])
-
-  
-  const addUser = (user) => {
-    const id = Math.floor(Math.random() * 10000) + 1;
-    const newUser = {id, ...user};
-    setUsers([...users, newUser]);
-    console.log(users)
-  }
-
   return (
     <Provider store={store} >
       <PaperProvider>
@@ -77,7 +60,7 @@ export default function App() {
             </Stack.Screen>
           </Stack.Navigator>
           <Portal>
-            <CustomLogInModal visible={visible} setVisible={setVisible} onAdd={addUser} />
+            <CustomLogInModal visible={visible} setVisible={setVisible} />
             <AddThread
               visible={addThreadVisible}
               setVisible={setAddThreadVisible}

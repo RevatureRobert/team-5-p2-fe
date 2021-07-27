@@ -11,7 +11,7 @@ export default function Profile({navigation}) {
 
     const onSignOutPress = () => {
         signOut();
-        logoutDispatcher();
+        logOutDispatcher();
         navigation.navigate('Home')
     }
 
@@ -24,12 +24,17 @@ export default function Profile({navigation}) {
         }
     }
 
-    const logoutDispatcher = () => {
+    const logOutDispatcher = () => {
         dispatch({
         type: UserAction.LOGOUT_USER,
         payload: {
         }
+        
         })
+    }
+    const onLogOutPress = () => {
+        logOutDispatcher();
+        navigation.navigate('Home');
     }
     return (
         <View>
@@ -44,6 +49,7 @@ export default function Profile({navigation}) {
                 <Card.Content>
                     <Button style={profileStyle.button} mode="outlined" onPress={onSignOutPress}>Sign Out</Button>
                     <Button style={profileStyle.button} mode="outlined">Edit</Button>
+                    <Button style={profileStyle.button} onPress={onLogOutPress}   mode="outlined">Logout</Button>
                     <Button style={profileStyle.button} mode="contained">Delete</Button>
                 </Card.Content>
                 </Card.Content>

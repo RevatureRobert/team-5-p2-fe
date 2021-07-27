@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View,Text } from 'react-native';
+import { View } from 'react-native';
 import { TextInput, Checkbox, Button } from 'react-native-paper';
 import { useDispatch } from 'react-redux';
 import { UserAction } from '../redux/Actions';
@@ -7,7 +7,7 @@ import { Auth } from 'aws-amplify'
 
 export default function logIn(props){
   const dispatch = useDispatch();
-  const [showSignUp, setShowSignUp] = React.useState(false);
+
   const [username, setUsername] = React.useState('');
   const [password, setPassword] = React.useState('');
 
