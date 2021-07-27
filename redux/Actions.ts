@@ -1,47 +1,17 @@
-import {iThread, iUser} from "../components/models";
+import axios from "axios";
+import { ThreadAction } from "./types/action_types"
 
-export interface IAppActions {
-    user: IAppUserActions;
-    thread: IAppThreadActions;
+//Fetch All Threads Action
+export function fetchThreads() {
+    return function (dispatch) {
+        return axios.get("https://jsonplaceholder.typicode.com/posts").then(({ data }) => {
+            dispatch(setThreads(data));
+        });
+    };
 }
-
-export enum ThreadAction {
-    GET_ALL = 'Get All',
-    ADD_THREAD = 'Add Thread',
-    REMOVE_THREAD = 'Remove Thread',
-    EDIT_THREAD = 'Edit Thread',
-    SELECT_THREAD = 'Select Thread' ,
-}
-export interface IThreadActions {
-    type: ThreadAction;
-    payload: {thread:iThread}
-}
-export interface IAppThreadActions extends IThreadActions{
-    type: ThreadAction;
-    payload: {
-        thread:iThread,
-        selection: number
-    }
-}
-
-export enum UserAction {
-    ADD_USER = 'Add User',
-    REMOVE_USER = 'Remove User',
-    EDIT_USER = 'Edit User',
-    SELECT_USER = 'Select User',
-    LOGIN_USER = 'Login User',
-    LOGOUT_USER = 'Logout User,'
-}
-
-export interface IUserActions {
-    type: UserAction;
-    payload: {user:iUser}
-}
-
-export interface IAppUserActions extends IUserActions{
-    type: UserAction;
-    payload: {
-        user:iUser,
-        selection: number
-    }
+function setThreads(data) {
+    return {
+        type: ThreadAction.GET_ALL,
+        payload: data
+    };
 }

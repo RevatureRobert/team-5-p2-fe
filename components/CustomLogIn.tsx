@@ -2,7 +2,7 @@ import * as React from 'react';
 import { View } from 'react-native';
 import { TextInput, Checkbox, Button } from 'react-native-paper';
 import { useDispatch } from 'react-redux';
-import { UserAction } from '../redux/Actions';
+import { UserAction } from '../redux/types/action_types';
 
 export default function logIn(props){
   const dispatch = useDispatch();

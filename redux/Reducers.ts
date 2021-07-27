@@ -1,4 +1,4 @@
-import {ThreadAction, IAppThreadActions, UserAction, IAppUserActions} from "./Actions";
+import {ThreadAction, IAppThreadActions, UserAction, IAppUserActions} from "./types/action_types";
 import {IAppThreadState, initialState, IAppUserState, initState} from "./Store";
 
 export const reducersThread = (state: IAppThreadState = initialState, action: IAppThreadActions): IAppThreadState => {
@@ -22,7 +22,7 @@ export const reducersThread = (state: IAppThreadState = initialState, action: IA
                     author: 'author ' + data[i].userId,
                 })
             }
-            console.log('Get_all_action')
+            console.log('Get_all_action');
             return newState;
         default:
             return newState;
