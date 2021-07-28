@@ -9,12 +9,6 @@ import { UserAction } from '../custom_types/action_types';
 export default function Profile({navigation}) {
     const dispatch = useDispatch();
 
-    const onSignOutPress = () => {
-        signOut();
-        logOutDispatcher();
-        navigation.navigate('Home')
-    }
-
     async function signOut() {
         try {
             await Auth.signOut();
@@ -28,11 +22,11 @@ export default function Profile({navigation}) {
         dispatch({
         type: UserAction.LOGOUT_USER,
         payload: {
-        }
-        
+            }
         })
     }
     const onLogOutPress = () => {
+        signOut();
         logOutDispatcher();
         navigation.navigate('Home');
     }
@@ -47,7 +41,6 @@ export default function Profile({navigation}) {
                     </Paragraph>
                     <Divider/>
                 <Card.Content>
-                    <Button style={profileStyle.button} mode="outlined" onPress={onSignOutPress}>Sign Out</Button>
                     <Button style={profileStyle.button} mode="outlined">Edit</Button>
                     <Button style={profileStyle.button} onPress={onLogOutPress}   mode="outlined">Logout</Button>
                     <Button style={profileStyle.button} mode="contained">Delete</Button>

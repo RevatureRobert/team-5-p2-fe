@@ -9,7 +9,7 @@ export interface IAppThreadState {
     threads: iThread[];
 }
 
-export const initialState: IAppThreadState = {
+export const initialThreadState: IAppThreadState = {
     threads: []
 }
 
@@ -18,7 +18,7 @@ export interface IAppUserState {
     users: iUser[];
 }
 
-export const initState: IAppUserState = {
+export const initialUserState: IAppUserState = {
     loggedIn: false,
     users: [
         {
