@@ -1,28 +1,31 @@
-import {iThread, iUser} from "../components/models";
+import { iThread, iUser } from "./object_types";
 
+//rootreducer parameter type
 export interface IAppActions {
-    user: IAppUserActions;
-    thread: IAppThreadActions;
+    user: IUserActions;
+    thread: IThreadActions;
 }
 
+//THREAD
+//actions
 export enum ThreadAction {
+    GET_ALL = 'Get All',
     ADD_THREAD = 'Add Thread',
     REMOVE_THREAD = 'Remove Thread',
     EDIT_THREAD = 'Edit Thread',
-    SELECT_THREAD = 'Select Thread' 
+    SELECT_THREAD = 'Select Thread',
 }
+//reducer parameter type
 export interface IThreadActions {
     type: ThreadAction;
-    payload: {thread:iThread}
-}
-export interface IAppThreadActions extends IThreadActions{
-    type: ThreadAction;
     payload: {
-        thread:iThread,
+        thread: iThread,
         selection: number
     }
 }
 
+//USER
+//actions
 export enum UserAction {
     ADD_USER = 'Add User',
     REMOVE_USER = 'Remove User',
@@ -31,16 +34,11 @@ export enum UserAction {
     LOGIN_USER = 'Login User',
     LOGOUT_USER = 'Logout User'
 }
-
+//reducer parameter type
 export interface IUserActions {
     type: UserAction;
-    payload: {user:iUser}
-}
-
-export interface IAppUserActions extends IUserActions{
-    type: UserAction;
     payload: {
-        user:iUser,
+        user: iUser,
         selection: number
     }
 }

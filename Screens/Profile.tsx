@@ -4,7 +4,7 @@ import { Avatar, Button, Card, Divider, Headline, Paragraph, Subheading, Title }
 import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react'
 import { Auth } from 'aws-amplify';
 import { useDispatch } from 'react-redux';
-import { UserAction } from '../redux/Actions';
+import { UserAction } from '../custom_types/action_types';
 
 export default function Profile({navigation}) {
     const dispatch = useDispatch();

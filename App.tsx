@@ -1,31 +1,30 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
+//Navigation Imports
 import { Portal, Provider as PaperProvider } from 'react-native-paper';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+//Component Imports
 import Home  from './Screens/Home'
 import Profile from './Screens/Profile'
 import CustomNav from './components/CustomNav';
 import AddThread from './components/AddThread';
 import CustomLogInModal from './components/CustomLogInModal'
-import { combineReducers, createStore, Store } from 'redux';
+//Redux Imports
+import { combineReducers, createStore, Store, applyMiddleware } from 'redux';
 import {IAppState} from './redux/Store';
-import { IAppThreadActions, IAppUserActions } from './redux/Actions';
+import { IThreadActions, IUserActions } from './custom_types/action_types';
 import {reducersThread, reducersUser} from './redux/Reducers'
-import { Provider, useSelector } from 'react-redux';
-import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react'
-import { Auth } from 'aws-amplify';
-import { iUser } from './components/models';
+import { Provider } from 'react-redux';
+import thunk from 'redux-thunk';
 
 import Amplify from 'aws-amplify';
 import config from './aws-exports';
 
 Amplify.configure(config);
 
-
 const Stack = createStackNavigator();
-const rootReducer = combineReducers({threadState: reducersThread, userState: reducersUser})
-const store: Store<IAppState, IAppUserActions | IAppThreadActions> = createStore(rootReducer)
+const rootReducer = combineReducers({threadState: reducersThread, userState: reducersUser});
+const store: Store<IAppState, IUserActions | IThreadActions> = createStore(rootReducer, applyMiddleware(thunk));
 
 
 

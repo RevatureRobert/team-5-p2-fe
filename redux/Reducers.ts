@@ -1,27 +1,34 @@
-import {ThreadAction, IAppThreadActions, UserAction, IAppUserActions} from "./Actions";
+import {ThreadAction, IThreadActions, UserAction, IUserActions} from "../custom_types/action_types";
 import {IAppThreadState, initialState, IAppUserState, initState} from "./Store";
 
-export const reducersThread = (state: IAppThreadState = initialState, action: IAppThreadActions): IAppThreadState => {
+export const reducersThread = (state: IAppThreadState = initialState, action: IThreadActions): IAppThreadState => {
     const newState= {...state};
     switch(action.type){
         case ThreadAction.ADD_THREAD:
             newState.threads.push(action.payload.thread)
-            
-            console.log(newState)
             return newState;
         case ThreadAction.SELECT_THREAD:
-            
             return newState;
-        
         case ThreadAction.REMOVE_THREAD:
             newState.threads = newState.threads.filter(thread => thread.id !== action.payload.thread.id)
             return newState
+        case ThreadAction.GET_ALL:
+            const data = action.payload;
+            for (let i = 0; i < 10; i++) {
+                newState.threads.push({
+                    id: data[i].id,
+                    title: data[i].title,
+                    description: data[i].body,
+                    author: 'author ' + data[i].userId,
+                })
+            }
+            return newState;
         default:
             return newState;
     }
 }
 
-export const reducersUser = (state: IAppUserState = initState, action: IAppUserActions): IAppUserState => {
+export const reducersUser = (state: IAppUserState = initState, action: IUserActions): IAppUserState => {
     const newState= {...state};
     switch(action.type){
         case UserAction.ADD_USER:
