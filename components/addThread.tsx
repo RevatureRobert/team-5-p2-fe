@@ -5,7 +5,7 @@ import {useDispatch} from 'react-redux';
 import {ThreadAction} from '../custom_types/action_types';
 
 
-export default function addThread({visible, setVisible}: {visible: any; setVisible: any;}) {
+export default function AddThread({visible, setVisible}: {visible: any; setVisible: any;}) {
     const dispatch = useDispatch();
     const [title, setTitle] = React.useState('')
     const [description, setDescription] = React.useState('')
