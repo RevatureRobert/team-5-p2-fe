@@ -12,9 +12,6 @@ web-build/
 # macOS
 .DS_Store
 
-#temp
-src/
-.vscode/
 #amplify
 amplify/\#current-cloud-backend
 amplify/.config/local-*
