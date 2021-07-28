@@ -8,10 +8,14 @@ const server = axios.create({
 
 //Fetch All Threads Action
 export function fetchThreads() {
-    return function (dispatch) {
-        return server.get("/threads").then(({ data }) => {
-            dispatch(setThreads(data));
-        });
+    return async (dispatch) => {
+        try {
+            return await server.get("/threads").then(({ data }) => {
+                dispatch(setThreads(data));
+            });
+        } catch (e) {
+            console.log('error', e);
+        }
     };
 }
 function setThreads(data) {
