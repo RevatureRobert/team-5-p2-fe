@@ -7,7 +7,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Home  from './Screens/Home'
 import Profile from './Screens/Profile'
 import CustomNav from './components/CustomNav';
-import AddThread from './components/AddThread';
+import ThreadAdd from './components/ThreadAdd';
 import CustomLogInModal from './components/CustomLogInModal'
 //Redux Imports
 import { combineReducers, createStore, Store, applyMiddleware } from 'redux';
@@ -60,7 +60,7 @@ export default function App() {
           </Stack.Navigator>
           <Portal>
             <CustomLogInModal visible={visible} setVisible={setVisible} />
-            <AddThread
+            <ThreadAdd
               visible={addThreadVisible}
               setVisible={setAddThreadVisible}
             />
