@@ -1,4 +1,4 @@
-import {iThread, iUser} from "../components/models"
+import {iThread, iUser} from "../custom_types/object_types"
 
 export interface IAppState {
     userState: IAppUserState;
