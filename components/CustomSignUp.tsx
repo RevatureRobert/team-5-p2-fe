@@ -1,9 +1,12 @@
 import * as React from 'react';
 import { View } from 'react-native';
 import { TextInput, Button } from 'react-native-paper';
+import { useDispatch } from 'react-redux';
+import { UserAction } from '../custom_types/action_types';
 import { Auth } from 'aws-amplify'
 
 export default function CustomSignUp(props){
+    const dispatch = useDispatch();
 
     const [username, setUsername] = React.useState('');
     const [password, setPassword] = React.useState('');
@@ -12,8 +15,6 @@ export default function CustomSignUp(props){
     const [authCode, setAuthCode] = React.useState('');
 
     const onSignUpSubmit = () => {
-
-        props.onAdd({ username, password, email })
         signUp();
         setUsername('');
         setPassword('');
@@ -36,12 +37,26 @@ export default function CustomSignUp(props){
             console.log('error signing up:', error);
         }
     }
+
+    const addNewUser = () => {
+        dispatch({
+            type: UserAction.ADD_USER,
+            payload: {
+                user: {
+                    id: Math.floor(Math.random() * 10000) + 1,
+                    username,
+                    password,
+                    email,
+                }
+            }
+        })
+    }
     
     async function confirmSignUp() {
         try {
             await Auth.confirmSignUp( authName, authCode )
             console.log('User signup successfully')
-            props.onAdd({username, password, email})
+            addNewUser();
             setAuthName('');
             setAuthCode('');
         } catch (error) {

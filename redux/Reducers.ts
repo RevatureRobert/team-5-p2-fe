@@ -33,7 +33,6 @@ export const reducersUser = (state: IAppUserState = initialUserState, action: IU
     switch(action.type){
         case UserAction.ADD_USER:
             newState.users.push(action.payload.user);
-            newState.loggedIn = true;
             return newState;
         case UserAction.SELECT_USER:
 
