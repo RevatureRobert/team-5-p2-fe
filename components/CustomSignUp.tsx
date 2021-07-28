@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import { UserAction } from '../custom_types/action_types';
 import { Auth } from 'aws-amplify'
 
-export default function signUp(props){
+export default function CustomSignUp(props){
     const dispatch = useDispatch();
 
     const [username, setUsername] = React.useState('');
