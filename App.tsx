@@ -17,11 +17,18 @@ import {reducersThread, reducersUser} from './redux/Reducers'
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 
+import Amplify from 'aws-amplify';
+import config from './aws-exports';
+
+Amplify.configure(config);
 
 const Stack = createStackNavigator();
-
 const rootReducer = combineReducers({threadState: reducersThread, userState: reducersUser});
 const store: Store<IAppState, IUserActions | IThreadActions> = createStore(rootReducer, applyMiddleware(thunk));
+
+
+
+
 
 export default function App() {
 
@@ -48,7 +55,7 @@ export default function App() {
               {(props) => <Home {...props}/>}
             </Stack.Screen>
             <Stack.Screen name="Profile">
-              {(props) => <Profile {...props}/>}
+             {(props) => <Profile {...props}/>}
             </Stack.Screen>
           </Stack.Navigator>
           <Portal>
@@ -63,3 +70,6 @@ export default function App() {
     </Provider>
   );
 }
+
+
+

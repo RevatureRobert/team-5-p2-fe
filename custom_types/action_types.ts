@@ -32,7 +32,7 @@ export enum UserAction {
     EDIT_USER = 'Edit User',
     SELECT_USER = 'Select User',
     LOGIN_USER = 'Login User',
-    LOGOUT_USER = 'Logout User,'
+    LOGOUT_USER = 'Logout User'
 }
 //reducer parameter type
 export interface IUserActions {

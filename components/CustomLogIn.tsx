@@ -3,6 +3,7 @@ import { View } from 'react-native';
 import { TextInput, Checkbox, Button } from 'react-native-paper';
 import { useDispatch } from 'react-redux';
 import { UserAction } from '../custom_types/action_types';
+import { Auth } from 'aws-amplify'
 
 export default function logIn(props){
   const dispatch = useDispatch();
@@ -11,25 +12,40 @@ export default function logIn(props){
   const [password, setPassword] = React.useState('');
 
   const onLoginPress = () =>{
-    loginDispatcher();
+    
+    signIn();
+  
     setUsername('');
     setPassword('');
     props.hideModal();
   }
 
-  const loginDispatcher = () => {
-    dispatch({
-      type: UserAction.LOGIN_USER,
-      payload: {
-        user: {
-          id: null,
-          username,
-          password,
-          email: null,
-        }
+  async function signIn() {
+    try {
+      await Auth.signIn(username, password);
+      loginDispatcher();
+      console.log('User Logged In Successfully')
+    } catch (error) {
+      
+        console.log('error signing in', error);
+        return;
+    }
+}
+
+const loginDispatcher = () => {
+  dispatch({
+    type: UserAction.LOGIN_USER,
+    payload: {
+      user: {
+        id: null,
+        username,
+        password,
+        email: null,
       }
-    })
-  }
+    }
+  })
+}
+
   return (
     <View>
         <TextInput
