@@ -59,8 +59,6 @@ const loginDispatcher = () => {
             onChangeText={text => setPassword(text)}
         />
 
-        <Checkbox.Item label="Remember Me?" status="checked" />
-
         <Button mode="contained" onPress={onLoginPress}>Log In</Button>
         <Button mode="contained" style={{top: 10}}>Sign Up</Button>
 

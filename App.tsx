@@ -20,6 +20,7 @@ import thunk from 'redux-thunk';
 import Amplify from 'aws-amplify';
 import config from './aws-exports';
 import SignUp from './Screens/SignUp';
+import EditProfile from './Screens/EditProfile';
 
 Amplify.configure(config);
 
@@ -51,6 +52,7 @@ export default function App() {
             <Stack.Screen name="Login" component={Login}/>
             <Stack.Screen name="SignUp" component={SignUp} />
             <Stack.Screen name="ThreadAdd" component={ThreadAdd}/>
+            <Stack.Screen name="EditProfile" component={EditProfile}/>
           </Stack.Navigator>
         </NavigationContainer>
       </PaperProvider>
