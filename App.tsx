@@ -6,6 +6,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 //Component Imports
 import Home  from './Screens/Home'
 import Profile from './Screens/Profile'
+import Login from './Screens/Login'
 import CustomNav from './components/CustomNav';
 import ThreadAdd from './components/ThreadAdd';
 import CustomLogInModal from './components/CustomLogInModal'
@@ -57,9 +58,10 @@ export default function App() {
             <Stack.Screen name="Profile">
              {(props) => <Profile {...props}/>}
             </Stack.Screen>
+            <Stack.Screen name="Login" component={Login}/>
           </Stack.Navigator>
           <Portal>
-            <CustomLogInModal visible={visible} setVisible={setVisible} />
+            {/* <CustomLogInModal visible={visible} setVisible={setVisible} /> */}
             <ThreadAdd
               visible={addThreadVisible}
               setVisible={setAddThreadVisible}

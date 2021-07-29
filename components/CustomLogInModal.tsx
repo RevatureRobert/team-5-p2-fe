@@ -17,13 +17,13 @@ export default function CustomLogInModal(props) {
   return (
     <Provider>
       <Portal>
-        <Modal visible={props.visible} onDismiss={hideModal} contentContainerStyle={containerStyle}>
+        {/* <Modal visible={props.visible} onDismiss={hideModal} contentContainerStyle={containerStyle}> */}
           <Text>
             {showSignUp 
               ? <CustomLogIn {...props} onSignUp={() => setShowSignUp(!showSignUp)} hideModal={hideModal}/> 
               : <CustomSignUp {...props} onSignUp={() => setShowSignUp(!showSignUp)} hideModal={hideModal}/>}
           </Text>
-        </Modal>
+        {/* </Modal> */}
       </Portal>
     </Provider>
   );
