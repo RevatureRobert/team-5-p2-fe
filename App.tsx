@@ -8,7 +8,7 @@ import Home  from './Screens/Home'
 import Profile from './Screens/Profile'
 import Login from './Screens/Login'
 import CustomNav from './components/CustomNav';
-import ThreadAdd from './components/ThreadAdd';
+import ThreadAdd from './Screens/ThreadAdd';
 //Redux Imports
 import { combineReducers, createStore, Store, applyMiddleware } from 'redux';
 import {IAppState} from './redux/Store';
@@ -27,15 +27,7 @@ const Stack = createStackNavigator();
 const rootReducer = combineReducers({threadState: reducersThread, userState: reducersUser});
 const store: Store<IAppState, IUserActions | IThreadActions> = createStore(rootReducer, applyMiddleware(thunk));
 
-
-
-
-
 export default function App() {
-
-  const [addThreadVisible, setAddThreadVisible] = React.useState(false);
-  const [visible, setVisible] = React.useState(false);
-
   return (
     <Provider store={store} >
       <PaperProvider>
@@ -46,8 +38,6 @@ export default function App() {
               header: (props: any) => (
                 <CustomNav
                   {...props}
-                  setVisible={setVisible}
-                  setAddThreadVisible={setAddThreadVisible}
                 />
               ), //Use Custom Navigator Bar
             }}
@@ -60,6 +50,7 @@ export default function App() {
             </Stack.Screen>
             <Stack.Screen name="Login" component={Login}/>
             <Stack.Screen name="SignUp" component={SignUp} />
+            <Stack.Screen name="ThreadAdd" component={ThreadAdd}/>
           </Stack.Navigator>
         </NavigationContainer>
       </PaperProvider>

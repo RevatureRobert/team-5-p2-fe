@@ -10,16 +10,29 @@ export interface IAppThreadState {
 }
 
 export const initialThreadState: IAppThreadState = {
-    threads: []
+    threads: [{
+        id: 1,
+        title: 'title',
+        description: 'description',
+        author: 'author',
+    }]
 }
 
 export interface IAppUserState {
     loggedIn: boolean;
+    currentUser: iUser;    
     users: iUser[];
 }
 
 export const initialUserState: IAppUserState = {
     loggedIn: false,
+    currentUser: {
+        id: 0,
+        username: "",
+        password: "",
+        email: "",
+        profile: "",
+    },
     users: [
         {
             id: 1,

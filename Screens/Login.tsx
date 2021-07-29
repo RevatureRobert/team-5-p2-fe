@@ -4,7 +4,6 @@ import { TextInput, Checkbox, Button } from 'react-native-paper';
 import { useDispatch, useSelector } from 'react-redux';
 import { UserAction } from '../custom_types/action_types';
 import { Auth } from 'aws-amplify'
-import { IAppState } from '../redux/Store';
 
 export default function Login({navigation}) {
 const dispatch = useDispatch();
