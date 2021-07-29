@@ -8,7 +8,9 @@ import { UserAction } from '../custom_types/action_types';
 import { IAppState } from '../redux/Store';
 
 export default function EditProfile({navigation}) {
+    const dispatch = useDispatch();
     const [profile, setProfile] = React.useState('');
+    const currentUser = useSelector((state: IAppState) => state.userState.currentUser)
 
     async function authProfileEdit() {
         let user = await Auth.currentAuthenticatedUser();
@@ -19,8 +21,25 @@ export default function EditProfile({navigation}) {
         navigation.navigate('Profile')
     }
 
+    const editDispatcher = () => {
+        dispatch({
+          type: UserAction.EDIT_USER,
+          payload: {
+            user: {
+                id: currentUser.id,
+                username: currentUser.username,
+                password: currentUser.password,
+                email: currentUser.email,
+                profile: profile
+            }
+          }
+        })
+      }
 
-
+      const onButtonPush = () => {
+          editDispatcher();
+          authProfileEdit();
+      }
 
     return(
         <View>
@@ -33,7 +52,7 @@ export default function EditProfile({navigation}) {
                     />
                 </Card.Content>
                 <Card.Content>
-                    <Button style={profileStyle.button} mode="outlined" onPress={authProfileEdit}>Edit</Button>
+                    <Button style={profileStyle.button} mode="outlined" onPress={onButtonPush}>Edit</Button>
                 </Card.Content>
             </Card>
         </View>

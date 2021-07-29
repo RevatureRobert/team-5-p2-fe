@@ -6,7 +6,8 @@ import { UserAction } from '../custom_types/action_types';
 import { Auth } from 'aws-amplify'
 
 export default function Login({navigation}) {
-const dispatch = useDispatch();
+  const dispatch = useDispatch();
+  
  
   const [username, setUsername] = React.useState('');
   const [password, setPassword] = React.useState('');
@@ -19,8 +20,10 @@ const dispatch = useDispatch();
 
   async function signIn() {
     try {
+
         await Auth.signIn(username, password);
-        loginDispatcher();
+        const user = await Auth.currentAuthenticatedUser();
+        loginDispatcher(user);
         navigation.navigate('Home');
         console.log('User Logged In Successfully')
     } catch (error) {
@@ -29,7 +32,8 @@ const dispatch = useDispatch();
     }
 }
 
-const loginDispatcher = () => {
+const loginDispatcher = (user) => {
+  
   dispatch({
     type: UserAction.LOGIN_USER,
     payload: {
@@ -37,7 +41,8 @@ const loginDispatcher = () => {
         id: null,
         username,
         password,
-        email: null,
+        email: user.attributes.email,
+        profile: user.attributes.profile
       }
     }
   })
@@ -54,6 +59,7 @@ const loginDispatcher = () => {
         <TextInput
             label="Password"
             value={password}
+            secureTextEntry={true}
             onChangeText={text => setPassword(text)}
         />
 

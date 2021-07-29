@@ -5,9 +5,7 @@ export const reducersThread = (state: IAppThreadState = initialThreadState, acti
     const newState= {...state};
     switch(action.type){
         case ThreadAction.ADD_THREAD:
-
-            newState.threads.push(action.payload.thread)
-            
+            newState.threads = [...newState.threads, action.payload.thread];
             return newState;
         case ThreadAction.REMOVE_THREAD:
             newState.threads = newState.threads.filter(thread => thread.id !== action.payload.thread.id)
@@ -35,7 +33,7 @@ export const reducersUser = (state: IAppUserState = initialUserState, action: IU
             newState.users.push(action.payload.user);
             return newState;
         case UserAction.EDIT_USER:
-            //TODO
+            newState.currentUser = action.payload.user;
             return newState;
         case UserAction.REMOVE_USER:
             newState.users = newState.users.filter(user => user.id !== action.payload.user.id)

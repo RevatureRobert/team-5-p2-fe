@@ -6,18 +6,14 @@ import { Auth } from 'aws-amplify';
 import { useDispatch, useSelector } from 'react-redux';
 import { UserAction } from '../custom_types/action_types';
 import { IAppState } from '../redux/Store';
+import { CurrentRenderContext } from '@react-navigation/native';
 
 export default function Profile({navigation}) {
     const dispatch = useDispatch();
 
     const currentUser = useSelector((state: IAppState) => state.userState.currentUser)
 
-    async function authProfile() {
-        let user = await Auth.currentAuthenticatedUser();
-        let profile = new String(user.attributes.profile)
-        console.log(user.attributes)
-        return profile;
-    }
+
   
 
     async function signOut() {
@@ -47,11 +43,11 @@ export default function Profile({navigation}) {
     return (
         <View>
             <Card style= {profileStyle.card}>
-                <Card.Title title={currentUser.username} subtitle="Card Subtitle" left={() => <Avatar.Text size={48} label="UN" />} />
+                <Card.Title title={currentUser.username} subtitle={currentUser.email} left={() => <Avatar.Text size={48} label={currentUser.username[0]} />} />
                 <Card.Content>
                     <Title>About Me</Title>
                     <Paragraph>
-                        {`${authProfile()}`}
+                        {currentUser.profile}
                     </Paragraph>
                     <Divider/>
                 <Card.Content>
