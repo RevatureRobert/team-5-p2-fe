@@ -6,9 +6,9 @@ import { IAppState } from '../redux/Store';
 import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react';
 import CustomLogIn from '../components/CustomLogIn'
 
-export default function Login(props) {
+export default function Login() {
 
     return(
-        <CustomLogIn {...props}/> 
+        <CustomLogIn/> 
     ) 
 }
