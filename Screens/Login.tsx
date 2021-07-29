@@ -11,25 +11,20 @@ const dispatch = useDispatch();
  
   const [username, setUsername] = React.useState('');
   const [password, setPassword] = React.useState('');
-  const loggedIn = useSelector((state: IAppState) => state.userState.loggedIn)
 
   const onLoginPress = () =>{
-    
     signIn();
-    console.log(loggedIn);
-    navigation.navigate('Home');
-    console.log("here");
     setUsername('');
     setPassword('');
   }
 
   async function signIn() {
     try {
-      await Auth.signIn(username, password);
-      loginDispatcher();
-      console.log('User Logged In Successfully')
+        await Auth.signIn(username, password);
+        loginDispatcher();
+        navigation.navigate('Home');
+        console.log('User Logged In Successfully')
     } catch (error) {
-      
         console.log('error signing in', error);
         return;
     }

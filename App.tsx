@@ -19,6 +19,7 @@ import thunk from 'redux-thunk';
 
 import Amplify from 'aws-amplify';
 import config from './aws-exports';
+import SignUp from './Screens/SignUp';
 
 Amplify.configure(config);
 
@@ -58,14 +59,8 @@ export default function App() {
              {(props) => <Profile {...props}/>}
             </Stack.Screen>
             <Stack.Screen name="Login" component={Login}/>
+            <Stack.Screen name="SignUp" component={SignUp} />
           </Stack.Navigator>
-          <Portal>
-            {/* <CustomLogInModal visible={visible} setVisible={setVisible} /> */}
-            <ThreadAdd
-              visible={addThreadVisible}
-              setVisible={setAddThreadVisible}
-            />
-          </Portal>
         </NavigationContainer>
       </PaperProvider>
     </Provider>
