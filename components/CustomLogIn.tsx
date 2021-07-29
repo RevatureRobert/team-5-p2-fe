@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import { UserAction } from '../custom_types/action_types';
 import { Auth } from 'aws-amplify'
 
-export default function CustomLogIn(props){
+export default function CustomLogIn(){
   const dispatch = useDispatch();
 
   const [username, setUsername] = React.useState('');
@@ -17,7 +17,6 @@ export default function CustomLogIn(props){
   
     setUsername('');
     setPassword('');
-    props.hideModal();
   }
 
   async function signIn() {
@@ -63,7 +62,7 @@ const loginDispatcher = () => {
         <Checkbox.Item label="Remember Me?" status="checked" />
 
         <Button mode="contained" onPress={onLoginPress}>Log In</Button>
-        <Button mode="contained" onPress={props.onSignUp} style={{top: 10}}>Sign Up</Button>
+        <Button mode="contained" style={{top: 10}}>Sign Up</Button>
 
     </View>
     

@@ -9,7 +9,6 @@ import Profile from './Screens/Profile'
 import Login from './Screens/Login'
 import CustomNav from './components/CustomNav';
 import ThreadAdd from './components/ThreadAdd';
-import CustomLogInModal from './components/CustomLogInModal'
 //Redux Imports
 import { combineReducers, createStore, Store, applyMiddleware } from 'redux';
 import {IAppState} from './redux/Store';
