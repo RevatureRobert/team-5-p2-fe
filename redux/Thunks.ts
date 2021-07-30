@@ -11,10 +11,12 @@ const server = axios.create({
 export function fetchThreads() {
     return async (dispatch) => {
         try {
+
+
             const apiName = 'threadAPI';
             const path = '/threads'; 
             const myInit = {};
-
+            
             API
                 .get(apiName, path, myInit)
                 .then(response => {

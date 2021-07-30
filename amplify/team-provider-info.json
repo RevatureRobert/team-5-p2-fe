@@ -23,7 +23,7 @@
       "function": {
         "SylphBECRUDLambda": {
           "deploymentBucketName": "amplify-sylphbe-staging-164907-deployment",
-          "s3Key": "amplify-builds/SylphBECRUDLambda-5a45716b307368414d50-build.zip"
+          "s3Key": "amplify-builds/SylphBECRUDLambda-724c786d486370435441-build.zip"
         }
       }
     }

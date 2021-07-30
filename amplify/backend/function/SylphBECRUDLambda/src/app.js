@@ -77,10 +77,9 @@ app.get(path, function(req, res) {
 
   let queryParams = {
     TableName: tableName,
-    KeyConditions: condition
   }
 
-  dynamodb.query(queryParams, (err, data) => {
+  dynamodb.scan(queryParams, (err, data) => {
     if (err) {
       res.statusCode = 500;
       res.json({error: 'Could not load items: ' + err});
