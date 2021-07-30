@@ -19,8 +19,8 @@ export enum ThreadAction {
 export interface IThreadActions {
     type: ThreadAction;
     payload: {
-        thread: iThread[],
-        selection: number
+        thread: iThread,
+        threadArray: iThread[];
     }
 }
 
@@ -39,6 +39,5 @@ export interface IUserActions {
     type: UserAction;
     payload: {
         user: iUser,
-        selection: number
     }
 }
