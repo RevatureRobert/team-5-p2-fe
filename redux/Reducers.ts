@@ -5,20 +5,21 @@ export const reducersThread = (state: IAppThreadState = initialThreadState, acti
     const newState= {...state};
     switch(action.type){
         case ThreadAction.ADD_THREAD:
-            newState.threads = [...newState.threads, action.payload.thread];
+            newState.threads = [...newState.threads, ...action.payload.thread];
             return newState;
         case ThreadAction.REMOVE_THREAD:
-            newState.threads = newState.threads.filter(thread => thread.id !== action.payload.thread.id)
+            //newState.threads = newState.threads.filter(thread => thread.id !== action.payload.thread.id)
             return newState
         case ThreadAction.GET_ALL:
-            const data = action.payload;
-            for (let i = 0; i < 10; i++) {
-                newState.threads.push({
+            const data = action.payload.thread;
+            for (let i = 0; i < data.length; i++) {
+                const newThread = {
                     id: data[i].id,
                     title: data[i].title,
-                    description: data[i].body,
-                    author: 'author ' + data[i].userId,
-                })
+                    description: data[i].description,
+                    author: data[i].author,
+                }
+                newState.threads = [...newState.threads, newThread];
             }
             return newState;
         default:

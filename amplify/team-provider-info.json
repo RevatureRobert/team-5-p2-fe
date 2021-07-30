@@ -1,0 +1,31 @@
+{
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-sylphbe-staging-164907-authRole",
+      "UnauthRoleArn": "arn:aws:iam::105366534338:role/amplify-sylphbe-staging-164907-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::105366534338:role/amplify-sylphbe-staging-164907-authRole",
+      "Region": "us-east-2",
+      "DeploymentBucketName": "amplify-sylphbe-staging-164907-deployment",
+      "UnauthRoleName": "amplify-sylphbe-staging-164907-unauthRole",
+      "StackName": "amplify-sylphbe-staging-164907",
+      "StackId": "arn:aws:cloudformation:us-east-2:105366534338:stack/amplify-sylphbe-staging-164907/0e72ad10-f156-11eb-a0e7-0275ed7b30de",
+      "AmplifyAppId": "d2tttz28irm9cb"
+    },
+    "categories": {
+      "auth": {
+        "sylphbe": {
+          "userPoolId": "us-east-2_bI2LCELfb",
+          "userPoolName": "team5p2fec9ec2777_userpool_c9ec2777-dev",
+          "webClientId": "63sehr8m99ls09f0eqlm247mem",
+          "nativeClientId": "63sehr8m99ls09f0eqlm247mem"
+        }
+      },
+      "function": {
+        "SylphBECRUDLambda": {
+          "deploymentBucketName": "amplify-sylphbe-staging-164907-deployment",
+          "s3Key": "amplify-builds/SylphBECRUDLambda-724c786d486370435441-build.zip"
+        }
+      }
+    }
+  }
+}

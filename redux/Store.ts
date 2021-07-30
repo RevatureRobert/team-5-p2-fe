@@ -10,12 +10,7 @@ export interface IAppThreadState {
 }
 
 export const initialThreadState: IAppThreadState = {
-    threads: [{
-        id: 1,
-        title: 'title',
-        description: 'description',
-        author: 'author',
-    }]
+    threads: []
 }
 
 export interface IAppUserState {

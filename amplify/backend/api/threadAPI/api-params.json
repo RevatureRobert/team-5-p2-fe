@@ -1,0 +1,35 @@
+{
+  "paths": [
+    {
+      "name": "/threads",
+      "lambdaFunction": "SylphBECRUDLambda",
+      "privacy": {
+        "open": true
+      },
+      "policyResourceName": "/threads"
+    }
+  ],
+  "resourceName": "threadAPI",
+  "apiName": "threadAPI",
+  "functionArns": [
+    {
+      "lambdaFunction": "SylphBECRUDLambda"
+    }
+  ],
+  "privacy": {
+    "auth": 0,
+    "unauth": 0,
+    "authRoleName": "amplify-sylphbe-staging-164907-authRole",
+    "unAuthRoleName": "amplify-sylphbe-staging-164907-unauthRole"
+  },
+  "dependsOn": [
+    {
+      "category": "function",
+      "resourceName": "SylphBECRUDLambda",
+      "attributes": [
+        "Name",
+        "Arn"
+      ]
+    }
+  ]
+}
