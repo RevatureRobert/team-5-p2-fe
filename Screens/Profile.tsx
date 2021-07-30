@@ -3,11 +3,18 @@ import { View, StyleSheet } from 'react-native';
 import { Avatar, Button, Card, Divider, Headline, Paragraph, Subheading, Title } from 'react-native-paper';
 import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react'
 import { Auth } from 'aws-amplify';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { UserAction } from '../custom_types/action_types';
+import { IAppState } from '../redux/Store';
+import { CurrentRenderContext } from '@react-navigation/native';
 
 export default function Profile({navigation}) {
     const dispatch = useDispatch();
+
+    const currentUser = useSelector((state: IAppState) => state.userState.currentUser)
+
+
+  
 
     async function signOut() {
         try {
@@ -30,18 +37,21 @@ export default function Profile({navigation}) {
         logOutDispatcher();
         navigation.navigate('Home');
     }
+
+
+
     return (
         <View>
             <Card style= {profileStyle.card}>
-                <Card.Title title="UserName" subtitle="Card Subtitle" left={() => <Avatar.Text size={48} label="UN" />} />
+                <Card.Title title={currentUser.username} subtitle={currentUser.email} left={() => <Avatar.Text size={48} label={currentUser.username[0]} />} />
                 <Card.Content>
                     <Title>About Me</Title>
                     <Paragraph>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum cupiditate voluptate ut quae natus, tempore iste facere pariatur et corrupti doloremque iusto ducimus obcaecati officiis! Tenetur commodi officia excepturi saepe!
+                        {currentUser.profile}
                     </Paragraph>
                     <Divider/>
                 <Card.Content>
-                    <Button style={profileStyle.button} mode="outlined">Edit</Button>
+                    <Button style={profileStyle.button} mode="outlined" onPress={() => navigation.navigate('EditProfile')} >Edit</Button>
                     <Button style={profileStyle.button} onPress={onLogOutPress}   mode="outlined">Logout</Button>
                     <Button style={profileStyle.button} mode="contained">Delete</Button>
                 </Card.Content>
