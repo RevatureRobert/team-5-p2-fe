@@ -1,0 +1,6 @@
+{
+  "authSelections": "userPoolOnly",
+  "resourceName": "sylphbe",
+  "serviceType": "imported",
+  "region": "us-east-2"
+}

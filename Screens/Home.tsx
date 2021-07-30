@@ -11,7 +11,22 @@ import { fetchThreads } from '../redux/Thunks';
 
 export default function Home({navigation}) {
     const threads = useSelector((state:IAppState) => state.threadState.threads);
-    // useEffect(() => {console.log(threads)},[threads])
+    const dispatch = useDispatch();
+    const useFetching = (someActionCreator) => {
+        useEffect(() => {
+            dispatch(someActionCreator());
+        },[])
+    }
+
+    useFetching(fetchThreads);
+
+    /**const useFetching = (someFetchActionCreator) => {
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(someFetchActionCreator());
+    }, []);
+} */
+    
     return (
     <View>
             {threads.map((thread: iThread) => (<Thread key={thread.id} thread={thread} />))}

@@ -3,26 +3,25 @@
 
 const awsmobile = {
     "aws_project_region": "us-east-2",
-    "aws_cognito_identity_pool_id": "us-east-2:f9fa31dc-c91f-4c21-95fa-724617892067",
     "aws_cognito_region": "us-east-2",
     "aws_user_pools_id": "us-east-2_bI2LCELfb",
-    "aws_user_pools_web_client_id": "5dt3ukkkackrjsf1u4tomcc78d",
+    "aws_user_pools_web_client_id": "63sehr8m99ls09f0eqlm247mem",
     "oauth": {},
-    "aws_appsync_graphqlEndpoint": "https://sckhcg3bkfhmjmw3wlg4h5vqey.appsync-api.us-east-2.amazonaws.com/graphql",
+    "aws_appsync_graphqlEndpoint": "https://7dge6qoxzbe3tmaricno4qyufi.appsync-api.us-east-2.amazonaws.com/graphql",
     "aws_appsync_region": "us-east-2",
     "aws_appsync_authenticationType": "API_KEY",
-    "aws_appsync_apiKey": "da2-m7m34ezubbf3thv7c6bgogocdm",
+    "aws_appsync_apiKey": "da2-rh5nehve6nhw7ina3fa5zaoa7e",
     "aws_cloud_logic_custom": [
         {
-            "name": "SylphAPI",
-            "endpoint": "https://xu5ym22fn4.execute-api.us-east-2.amazonaws.com/dev",
+            "name": "threadAPI",
+            "endpoint": "https://4joy85d5dd.execute-api.us-east-2.amazonaws.com/staging",
             "region": "us-east-2"
         }
     ],
     "aws_dynamodb_all_tables_region": "us-east-2",
     "aws_dynamodb_table_schemas": [
         {
-            "tableName": "ThreadsTable-dev",
+            "tableName": "ThreadsTable-staging",
             "region": "us-east-2"
         }
     ]

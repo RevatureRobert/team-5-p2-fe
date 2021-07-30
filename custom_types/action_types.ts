@@ -19,7 +19,7 @@ export enum ThreadAction {
 export interface IThreadActions {
     type: ThreadAction;
     payload: {
-        thread: iThread,
+        thread: iThread[],
         selection: number
     }
 }

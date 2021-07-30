@@ -4,9 +4,9 @@ import { schema } from './schema';
 
 
 
-const { User, Thread } = initSchema(schema);
+const { Thread, User } = initSchema(schema);
 
 export {
-  User,
-  Thread
+  Thread,
+  User
 };

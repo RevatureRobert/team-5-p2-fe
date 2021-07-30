@@ -17,8 +17,8 @@ import {reducersThread, reducersUser} from './redux/Reducers'
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 
-import Amplify from 'aws-amplify';
-import config from './aws-exports';
+import Amplify, { API } from 'aws-amplify';
+import config from './src/aws-exports';
 import SignUp from './Screens/SignUp';
 import EditProfile from './Screens/EditProfile';
 
@@ -29,6 +29,7 @@ const rootReducer = combineReducers({threadState: reducersThread, userState: red
 const store: Store<IAppState, IUserActions | IThreadActions> = createStore(rootReducer, applyMiddleware(thunk));
 
 export default function App() {
+
   return (
     <Provider store={store} >
       <PaperProvider>
