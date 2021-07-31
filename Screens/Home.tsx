@@ -19,13 +19,6 @@ export default function Home({navigation}) {
     }
 
     useFetching(fetchThreads);
-
-    /**const useFetching = (someFetchActionCreator) => {
-    const dispatch = useDispatch();
-    useEffect(() => {
-        dispatch(someFetchActionCreator());
-    }, []);
-} */
     
     return (
     <View>

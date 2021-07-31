@@ -4,6 +4,7 @@ import { TextInput, Button } from 'react-native-paper';
 import {useDispatch, useSelector} from 'react-redux';
 import {ThreadAction} from '../custom_types/action_types';
 import { IAppState } from '../redux/Store';
+import { postThread } from '../redux/Thunks';
 
 
 export default function ThreadAdd({navigation}) {
@@ -12,7 +13,12 @@ export default function ThreadAdd({navigation}) {
     const [description, setDescription] = React.useState('')
 
     const onAddSubmit = () => {
-        addNewThread();
+        dispatch(postThread({
+            id: Math.floor(Math.random() * 10000) + 1,
+            title,
+            description,
+            author: currentUserName,
+        }))
         setTitle('');
         setDescription('');
         navigation.navigate('Home')
@@ -20,19 +26,6 @@ export default function ThreadAdd({navigation}) {
     
     
     const currentUserName = useSelector((state: IAppState) => state.userState.currentUser.username)
-    const addNewThread = () => {
-        dispatch({
-            type: ThreadAction.ADD_THREAD,
-            payload: {
-                thread: {
-                    id: Math.floor(Math.random() * 10000) + 1,
-                    title,
-                    description,
-                    author: currentUserName,
-                }
-            }
-        })
-    }
 
     return(
         <View>
