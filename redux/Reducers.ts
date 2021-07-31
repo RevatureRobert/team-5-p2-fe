@@ -28,7 +28,7 @@ export const reducersUser = (state: IAppUserState = initialUserState, action: IU
             newState.currentUser = action.payload.user;
             return newState;
         case UserAction.REMOVE_USER:
-            newState.users = newState.users.filter(user => user.id !== action.payload.user.id)
+            // newState.users = newState.users.filter(user => user.id !== action.payload.user.id)
             return newState
         case UserAction.LOGIN_USER:
             newState.currentUser = action.payload.user;

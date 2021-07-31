@@ -13,9 +13,6 @@ export default function Profile({navigation}) {
 
     const currentUser = useSelector((state: IAppState) => state.userState.currentUser)
 
-
-  
-
     async function signOut() {
         try {
             await Auth.signOut();

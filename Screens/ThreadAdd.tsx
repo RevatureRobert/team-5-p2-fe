@@ -2,7 +2,6 @@ import React from 'react'
 import { View } from 'react-native';
 import { TextInput, Button } from 'react-native-paper';
 import {useDispatch, useSelector} from 'react-redux';
-import {ThreadAction} from '../custom_types/action_types';
 import { IAppState } from '../redux/Store';
 import { postThread } from '../redux/Thunks';
 
@@ -18,6 +17,8 @@ export default function ThreadAdd({navigation}) {
             title,
             description,
             author: currentUserName,
+            likes: 0,
+            dislikes: 0
         }))
         setTitle('');
         setDescription('');
