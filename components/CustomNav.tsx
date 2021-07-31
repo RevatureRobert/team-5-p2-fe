@@ -1,8 +1,8 @@
 import React from 'react'
-import { View } from 'react-native';
 import { Appbar } from 'react-native-paper';
 import { useSelector } from 'react-redux';
 import { IAppState } from '../redux/Store';
+import { View } from 'react-native';
 
 export default function CustomNav({previous, navigation}) {
 

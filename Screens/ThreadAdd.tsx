@@ -1,9 +1,9 @@
 import React from 'react'
-import { View } from 'react-native';
 import { TextInput, Button } from 'react-native-paper';
 import {useDispatch, useSelector} from 'react-redux';
 import { IAppState } from '../redux/Store';
 import { postThread } from '../redux/Thunks';
+import { View } from 'react-native';
 
 
 export default function ThreadAdd({navigation}) {

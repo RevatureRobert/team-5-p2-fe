@@ -1,8 +1,5 @@
 import React from 'react';
 //Navigation Imports
-import { Portal, Provider as PaperProvider } from 'react-native-paper';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
 //Component Imports
 import Home  from './Screens/Home'
 import Profile from './Screens/Profile'
@@ -21,6 +18,9 @@ import Amplify, { API } from 'aws-amplify';
 import config from './src/aws-exports';
 import SignUp from './Screens/SignUp';
 import EditProfile from './Screens/EditProfile';
+import { Portal, Provider as PaperProvider } from 'react-native-paper';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 
 Amplify.configure(config);
 

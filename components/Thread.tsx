@@ -1,7 +1,7 @@
 import React from 'react';
 import {iThread} from '../custom_types/object_types';
-import { View, StyleSheet } from 'react-native';
 import { Button, Card, Paragraph } from 'react-native-paper';
+import { View, StyleSheet } from 'react-native';
 
 interface IProps {
     thread: iThread;

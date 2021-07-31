@@ -1,9 +1,9 @@
 import * as React from 'react';
-import { View } from 'react-native';
 import { TextInput, Checkbox, Button } from 'react-native-paper';
 import { useDispatch, useSelector } from 'react-redux';
 import { UserAction } from '../custom_types/action_types';
 import { Auth } from 'aws-amplify'
+import { View } from 'react-native';
 
 export default function Login({navigation}) {
   const dispatch = useDispatch();
