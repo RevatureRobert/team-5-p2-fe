@@ -14,11 +14,11 @@ import {reducersThread, reducersUser} from './redux/Reducers'
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 
-import Amplify, { API } from 'aws-amplify';
+import Amplify from 'aws-amplify';
 import config from './src/aws-exports';
 import SignUp from './Screens/SignUp';
 import EditProfile from './Screens/EditProfile';
-import { Portal, Provider as PaperProvider } from 'react-native-paper';
+import { Provider as PaperProvider } from 'react-native-paper';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
