@@ -5,7 +5,6 @@ import { IAppState } from '../redux/Store';
 import { postThread } from '../redux/Thunks';
 import { View } from 'react-native';
 
-
 export default function ThreadAdd({navigation}) {
     const dispatch = useDispatch();
     const [title, setTitle] = React.useState('')
@@ -24,7 +23,6 @@ export default function ThreadAdd({navigation}) {
         setDescription('');
         navigation.navigate('Home')
     } 
-    
     
     const currentUserName = useSelector((state: IAppState) => state.userState.currentUser.username)
 

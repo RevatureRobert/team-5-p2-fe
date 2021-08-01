@@ -1,6 +1,5 @@
 import React from 'react';
-import { Avatar, Button, Card, Divider, Headline, Paragraph, Subheading, TextInput, Title } from 'react-native-paper';
-import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react'
+import { Button, Card, TextInput } from 'react-native-paper';
 import { Auth } from 'aws-amplify';
 import { useDispatch, useSelector } from 'react-redux';
 import { UserAction } from '../custom_types/action_types';
@@ -36,10 +35,10 @@ export default function EditProfile({navigation}) {
         })
       }
 
-      const onButtonPush = () => {
-          editDispatcher();
-          authProfileEdit();
-      }
+    const onButtonPush = () => {
+        editDispatcher();
+        authProfileEdit();
+    }
 
     return(
         <View>
@@ -68,6 +67,5 @@ const profileStyle = StyleSheet.create({
     },
     button: {
         marginTop: '1em',
-       
     }
 })

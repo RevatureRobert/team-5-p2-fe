@@ -1,7 +1,5 @@
 import * as React from 'react';
 import { TextInput, Button } from 'react-native-paper';
-import { useDispatch } from 'react-redux';
-import { UserAction } from '../custom_types/action_types';
 import { Auth } from 'aws-amplify'
 import { View } from 'react-native';
 

@@ -9,7 +9,7 @@ import { View } from 'react-native';
 
 
 
-export default function Home({navigation}) {
+export default function Home() {
     const threads = useSelector((state:IAppState) => state.threadState.threads);
     const dispatch = useDispatch();
     const useFetching = (someActionCreator) => {

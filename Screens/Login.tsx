@@ -8,7 +8,6 @@ import { View } from 'react-native';
 export default function Login({navigation}) {
   const dispatch = useDispatch();
   
- 
   const [username, setUsername] = React.useState('');
   const [password, setPassword] = React.useState('');
 
@@ -20,7 +19,6 @@ export default function Login({navigation}) {
 
   async function signIn() {
     try {
-
         await Auth.signIn(username, password);
         const user = await Auth.currentAuthenticatedUser();
         loginDispatcher(user);
@@ -32,8 +30,7 @@ export default function Login({navigation}) {
     }
 }
 
-const loginDispatcher = (user) => {
-  
+const loginDispatcher = (user) => { 
   dispatch({
     type: UserAction.LOGIN_USER,
     payload: {
@@ -47,10 +44,6 @@ const loginDispatcher = (user) => {
     }
   })
 }
-
-
-
-
   return (
     <View>
         <TextInput
