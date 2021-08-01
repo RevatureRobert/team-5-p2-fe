@@ -13,9 +13,6 @@ export default function SignUp({navigation}) {
 
     const onSignUpSubmit = () => {
         signUp();
-        setUsername('');
-        setPassword('');
-        setEmail('');
     }
 
     async function signUp() {
@@ -39,8 +36,6 @@ export default function SignUp({navigation}) {
         try {
             await Auth.confirmSignUp(authName, authCode)
             console.log('User signup successfully')
-            setAuthName('');
-            setAuthCode('');
             navigation.navigate('Login');
         } catch (error) {
             console.log('Error Signing up')

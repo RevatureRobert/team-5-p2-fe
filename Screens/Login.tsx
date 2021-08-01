@@ -13,8 +13,6 @@ export default function Login({navigation}) {
 
   const onLoginPress = () =>{
     signIn();
-    setUsername('');
-    setPassword('');
   }
 
   async function signIn() {
