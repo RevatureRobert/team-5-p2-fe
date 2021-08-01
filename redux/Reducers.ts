@@ -13,6 +13,10 @@ export const reducersThread = (state: IAppThreadState = initialThreadState, acti
         case ThreadAction.GET_ALL:
             newState.threads = [...newState.threads, ...action.payload.threadArray];
             return newState;
+        case ThreadAction.ADD_LIKE:
+            return newState;
+        case ThreadAction.ADD_LIKE:
+            return newState;       
         default:
             return newState;
     }

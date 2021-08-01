@@ -2,12 +2,20 @@ import React from 'react';
 import {iThread} from '../custom_types/object_types';
 import { View, StyleSheet } from 'react-native';
 import { Button, Card, Paragraph } from 'react-native-paper';
+import { useDispatch, useSelector } from 'react-redux';
+import { IAppState } from '../redux/Store';
+import LikesAndDislikes from './LikesAndDislikes';
 
 interface IProps {
     thread: iThread;
 }
 
 const Threads: React.FC<IProps> = (props: IProps) =>{
+    const loggedIn = useSelector((state: IAppState) => state.userState.loggedIn)
+    const dispatch = useDispatch();
+
+
+
 
     return(
         <View >
@@ -18,8 +26,7 @@ const Threads: React.FC<IProps> = (props: IProps) =>{
                 {/* <Card.Cover style = {images.size} source={{ uri: 'https://picsum.photos/700' }}/> */}
                 </Card.Content>
                 <Card.Actions>
-                    <Button icon="arrow-up-circle-outline"> </Button>
-                    <Button icon="arrow-down-circle-outline"> </Button>
+                    {loggedIn ? <LikesAndDislikes {...props}/> : null}
                 </Card.Actions>
             </Card>
         </View>

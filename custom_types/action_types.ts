@@ -14,6 +14,8 @@ export enum ThreadAction {
     REMOVE_THREAD = 'Remove Thread',
     EDIT_THREAD = 'Edit Thread',
     SELECT_THREAD = 'Select Thread',
+    ADD_LIKE = 'Add Like',
+    ADD_DISLIKE = 'Add Dislike'
 
 }
 //reducer parameter type
