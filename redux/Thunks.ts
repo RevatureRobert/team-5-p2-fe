@@ -1,32 +1,17 @@
 import { API } from "aws-amplify";
-import axios from "axios";
 import { ThreadAction } from "../custom_types/action_types"
+import { iThread } from "../custom_types/object_types";
 
-//customize axios
-const server = axios.create({
-    baseURL: "https://4joy85d5dd.execute-api.us-east-2.amazonaws.com/staging"
-})
+const apiName = 'threadAPI';
+const myInit = {};
 
 //Fetch All Threads Action
 export function fetchThreads() {
     return async (dispatch) => {
         try {
-
-
-            const apiName = 'threadAPI';
-            const path = '/threads'; 
-            const myInit = {};
-            
-            API
-                .get(apiName, path, myInit)
-                .then(response => {
-                    console.log(response)
-                    dispatch(setThreads(response))
-                })
-                .catch(error => {
-                    console.log(error);
-                });
-            
+            const path = '/threads';
+            const data = await API.get(apiName, path, {})
+            dispatch(setThreads(data))
         } catch (e) {
             console.log('error', e);
         }
@@ -36,8 +21,28 @@ function setThreads(data) {
     return {
         type: ThreadAction.GET_ALL,
         payload: {
-            thread: data
+            threadArray: data,
         }
     };
 }
 
+//Post a Thread Action
+export function postThread(newThread: iThread) {
+    return async (dispatch) => {
+        try {
+            const path = '/threads';
+            await API.post(apiName, path, {body: newThread});
+            dispatch(addNewThread(newThread));
+        } catch (e) {
+            console.log('error', e);
+        }
+    }
+}
+function addNewThread(newThread:iThread) {
+    return {
+        type: ThreadAction.ADD_THREAD,
+        payload: {
+            thread: newThread,
+    }
+}
+}

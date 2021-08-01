@@ -1,11 +1,9 @@
 import React, { useEffect } from 'react';
-import { View } from 'react-native';
 import Thread from '../components/Thread';
-import {iThread} from '../custom_types/object_types'
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import {IAppState} from '../redux/Store';
-import {useDispatch} from 'react-redux';
 import { fetchThreads } from '../redux/Thunks';
+import { FlatList, View } from 'react-native';
 
 
 
@@ -19,17 +17,15 @@ export default function Home({navigation}) {
     }
 
     useFetching(fetchThreads);
-
-    /**const useFetching = (someFetchActionCreator) => {
-    const dispatch = useDispatch();
-    useEffect(() => {
-        dispatch(someFetchActionCreator());
-    }, []);
-} */
     
     return (
     <View>
-            {threads.map((thread: iThread) => (<Thread key={thread.id} thread={thread} />))}
+        <FlatList
+            data={threads}
+            renderItem={({ item }) => { return <Thread thread={item} /> }}
+            keyExtractor={item => item.id.toString()}
+            >
+        </FlatList>
     </View>
     );
 }

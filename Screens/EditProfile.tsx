@@ -1,11 +1,10 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
-import { Avatar, Button, Card, Divider, Headline, Paragraph, Subheading, TextInput, Title } from 'react-native-paper';
-import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react'
+import { Button, Card, TextInput } from 'react-native-paper';
 import { Auth } from 'aws-amplify';
 import { useDispatch, useSelector } from 'react-redux';
 import { UserAction } from '../custom_types/action_types';
 import { IAppState } from '../redux/Store';
+import { View, StyleSheet } from 'react-native';
 
 export default function EditProfile({navigation}) {
     const dispatch = useDispatch();
@@ -36,14 +35,14 @@ export default function EditProfile({navigation}) {
         })
       }
 
-      const onButtonPush = () => {
-          editDispatcher();
-          authProfileEdit();
-      }
+    const onButtonPush = () => {
+        editDispatcher();
+        authProfileEdit();
+    }
 
     return(
         <View>
-            <Card style= {profileStyle.card}>
+            <Card >
                 <Card.Content>
                     <TextInput
                         label="Edit Profile"
@@ -52,22 +51,21 @@ export default function EditProfile({navigation}) {
                     />
                 </Card.Content>
                 <Card.Content>
-                    <Button style={profileStyle.button} mode="outlined" onPress={onButtonPush}>Edit</Button>
+                    <Button  mode="outlined" onPress={onButtonPush}>Edit</Button>
                 </Card.Content>
             </Card>
         </View>
     )
 }
 
-const profileStyle = StyleSheet.create({
-    card: {
-        width: '90%',
-        margin: 'auto',
-        marginTop: '3em',
-        paddingVertical: '1em',
-    },
-    button: {
-        marginTop: '1em',
-       
-    }
-})
+// const profileStyle = StyleSheet.create({
+//     card: {
+//         width: '90%',
+//         margin: 'auto',
+//         marginTop: '3em',
+//         paddingVertical: '1em',
+//     },
+//     button: {
+//         marginTop: '1em',
+//     }
+// })

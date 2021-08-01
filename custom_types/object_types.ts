@@ -3,6 +3,8 @@ export interface iThread {
     title: string;
     author: string;
     description: string;
+    likes: number;
+    dislikes: number;
 }
 
 export interface iUser {

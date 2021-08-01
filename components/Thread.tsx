@@ -1,13 +1,14 @@
 import React from 'react';
 import {iThread} from '../custom_types/object_types';
-import { View, Image, StyleSheet } from 'react-native';
-import { Avatar, Button, Card, Title, Paragraph } from 'react-native-paper';
+import { Button, Card, Paragraph } from 'react-native-paper';
+import { View, StyleSheet } from 'react-native';
 
 interface IProps {
     thread: iThread;
 }
 
 const Threads: React.FC<IProps> = (props: IProps) =>{
+
     return(
         <View >
             <Card style = {card.thread}>

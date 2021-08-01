@@ -14,13 +14,14 @@ export enum ThreadAction {
     REMOVE_THREAD = 'Remove Thread',
     EDIT_THREAD = 'Edit Thread',
     SELECT_THREAD = 'Select Thread',
+
 }
 //reducer parameter type
 export interface IThreadActions {
     type: ThreadAction;
     payload: {
-        thread: iThread[],
-        selection: number
+        thread: iThread,
+        threadArray: iThread[];
     }
 }
 
@@ -39,6 +40,5 @@ export interface IUserActions {
     type: UserAction;
     payload: {
         user: iUser,
-        selection: number
     }
 }
