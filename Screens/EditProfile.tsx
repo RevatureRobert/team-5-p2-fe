@@ -42,7 +42,7 @@ export default function EditProfile({navigation}) {
 
     return(
         <View>
-            <Card style= {profileStyle.card}>
+            <Card >
                 <Card.Content>
                     <TextInput
                         label="Edit Profile"
@@ -51,21 +51,21 @@ export default function EditProfile({navigation}) {
                     />
                 </Card.Content>
                 <Card.Content>
-                    <Button style={profileStyle.button} mode="outlined" onPress={onButtonPush}>Edit</Button>
+                    <Button  mode="outlined" onPress={onButtonPush}>Edit</Button>
                 </Card.Content>
             </Card>
         </View>
     )
 }
 
-const profileStyle = StyleSheet.create({
-    card: {
-        width: '90%',
-        margin: 'auto',
-        marginTop: '3em',
-        paddingVertical: '1em',
-    },
-    button: {
-        marginTop: '1em',
-    }
-})
+// const profileStyle = StyleSheet.create({
+//     card: {
+//         width: '90%',
+//         margin: 'auto',
+//         marginTop: '3em',
+//         paddingVertical: '1em',
+//     },
+//     button: {
+//         marginTop: '1em',
+//     }
+// })

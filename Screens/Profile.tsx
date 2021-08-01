@@ -33,7 +33,7 @@ export default function Profile({navigation}) {
     }
     return (
         <View>
-            <Card style= {profileStyle.card}>
+            <Card >
                 <Card.Title title={currentUser.username} subtitle={currentUser.email} left={() => <Avatar.Text size={48} label={currentUser.username[0]} />} />
                 <Card.Content>
                     <Title>About Me</Title>
@@ -42,9 +42,9 @@ export default function Profile({navigation}) {
                     </Paragraph>
                     <Divider/>
                 <Card.Content>
-                    <Button style={profileStyle.button} mode="outlined" onPress={() => navigation.navigate('EditProfile')} >Edit</Button>
-                    <Button style={profileStyle.button} onPress={onLogOutPress}   mode="outlined">Logout</Button>
-                    <Button style={profileStyle.button} mode="contained">Delete</Button>
+                    <Button  mode="outlined" onPress={() => navigation.navigate('EditProfile')} >Edit</Button>
+                    <Button onPress={onLogOutPress}   mode="outlined">Logout</Button>
+                    <Button mode="contained">Delete</Button>
                 </Card.Content>
                 </Card.Content>
             </Card>
@@ -52,15 +52,15 @@ export default function Profile({navigation}) {
     );
 }
 
-const profileStyle = StyleSheet.create({
-    card: {
-        width: '90%',
-        margin: 'auto',
-        marginTop: '3em',
-        paddingVertical: '1em',
-    },
-    button: {
-        marginTop: '1em',
+// const profileStyle = StyleSheet.create({
+//     card: {
+//         width: '90%',
+//         margin: 'auto',
+//         marginTop: '3em',
+//         paddingVertical: '1em',
+//     },
+//     button: {
+//         marginTop: '1em',
        
-    }
-})
+//     }
+// })
