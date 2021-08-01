@@ -4,7 +4,7 @@ import {iThread} from '../custom_types/object_types'
 import { useSelector, useDispatch } from 'react-redux';
 import {IAppState} from '../redux/Store';
 import { fetchThreads } from '../redux/Thunks';
-import { View } from 'react-native';
+import { FlatList, View } from 'react-native';
 
 
 
@@ -21,7 +21,13 @@ export default function Home() {
     
     return (
     <View>
-            {threads.map((thread: iThread) => (<Thread key={thread.id} thread={thread} />))}
+        <FlatList
+            data={threads}
+            renderItem={({ item }) => { return <Thread thread={item} /> }}
+            keyExtractor={item => item.id.toString()}
+            >
+        </FlatList>
+            {/* {threads.map((thread: iThread) => (<Thread key={thread.id} thread={thread} />))} */}
     </View>
     );
 }
