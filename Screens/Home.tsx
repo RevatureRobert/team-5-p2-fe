@@ -3,7 +3,7 @@ import Thread from '../components/Thread';
 import { useSelector, useDispatch } from 'react-redux';
 import {IAppState} from '../redux/Store';
 import { fetchThreads } from '../redux/Thunks';
-import { FlatList, View } from 'react-native';
+import { FlatList, View, StyleSheet, SafeAreaView } from 'react-native';
 
 
 
@@ -18,14 +18,22 @@ export default function Home({navigation}) {
 
     useFetching(fetchThreads);
     
+    const renderItem = ({ item }) => (<Thread thread={item} />);
+
     return (
-    <View>
-        <FlatList
+    <SafeAreaView>
+        <FlatList 
             data={threads}
-            renderItem={({ item }) => { return <Thread thread={item} /> }}
+            renderItem={renderItem}
             keyExtractor={item => item.id.toString()}
             >
         </FlatList>
-    </View>
+    </SafeAreaView>
     );
 }
+
+const style = StyleSheet.create({
+    flat:{
+
+    }
+})

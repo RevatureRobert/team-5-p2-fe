@@ -12,7 +12,7 @@ const Threads: React.FC<IProps> = (props: IProps) =>{
     return(
         <View >
             <Card style = {card.thread}>
-                <Card.Title title = {props.thread.title} subtitle= {props.thread.author}/>
+                <Card.Title titleNumberOfLines={2} titleStyle={{flexWrap:'wrap'}} title = {props.thread.title} subtitle= {props.thread.author}/>
                 <Card.Content>
                     <Paragraph>{props.thread.description}</Paragraph>
                 {/* <Card.Cover style = {images.size} source={{ uri: 'https://picsum.photos/700' }}/> */}
@@ -29,10 +29,10 @@ const Threads: React.FC<IProps> = (props: IProps) =>{
 
 const card = StyleSheet.create({
     title: {
-        width: '50%',
+        // width: '50%',
         margin: 'auto',
-        // padding: '1em',
-        // marginBottom: '10px',
+        padding: '1em',
+        marginBottom: '10px',
         // backgroundColor: '#279',
     },
     view: {
@@ -43,12 +43,17 @@ const card = StyleSheet.create({
         // color: '#000'
     },
     thread: {
-        width: '50%',
+        // width: '50%',
         margin: 'auto',
     },
     text: {
-        fontSize: 30,
-        color: '#000'
+        // fontSize: 30,
+        // color: '#000'
+    },
+    container: {
+        width: 0,
+        flexGrow: 1,
+        flex: 1,
     },
 })
 
