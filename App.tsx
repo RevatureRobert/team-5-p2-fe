@@ -26,7 +26,7 @@ Amplify.configure(config);
 
 const Stack = createStackNavigator();
 const rootReducer = combineReducers({threadState: reducersThread, userState: reducersUser});
-const store: Store<IAppState, IUserActions | IThreadActions> = createStore(rootReducer, applyMiddleware(thunk));
+const store:Store<IAppState, IUserActions | IThreadActions> = createStore(rootReducer, applyMiddleware(thunk));
 
 export default function App() {
 
