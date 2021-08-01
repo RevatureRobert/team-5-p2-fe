@@ -1,9 +1,8 @@
 import React, { useEffect } from 'react';
 import Thread from '../components/Thread';
 import {iThread} from '../custom_types/object_types'
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import {IAppState} from '../redux/Store';
-import {useDispatch} from 'react-redux';
 import { fetchThreads } from '../redux/Thunks';
 import { View } from 'react-native';
 
