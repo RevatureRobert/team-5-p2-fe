@@ -32,8 +32,9 @@ export default function Profile({navigation}) {
         navigation.navigate('Home');
     }
     return (
-        <View>
-            <Card >
+        <View style={card.container}>
+        <ImageBackground source={require('../components/Forest_Background.jpg')}  style={{flex: 1}}>
+            <Card style={{backgroundColor: 'rgba(14, 80, 9, .85)'}}>
                 <Card.Title title={currentUser.username} subtitle={currentUser.email} left={() => <Avatar.Text size={48} label={currentUser.username[0]} />} />
                 <Card.Content>
                     <Title>About Me</Title>
@@ -42,12 +43,13 @@ export default function Profile({navigation}) {
                     </Paragraph>
                     <Divider/>
                 <Card.Content>
-                    <Button  mode="outlined" onPress={() => navigation.navigate('EditProfile')} >Edit</Button>
-                    <Button onPress={onLogOutPress}   mode="outlined">Logout</Button>
+                    <Button  mode="contained" onPress={() => navigation.navigate('EditProfile')} >Edit</Button>
+                    <Button onPress={onLogOutPress}   mode="contained">Logout</Button>
                     <Button mode="contained">Delete</Button>
                 </Card.Content>
                 </Card.Content>
             </Card>
+            </ImageBackground>
         </View>
     );
 }
@@ -67,8 +69,7 @@ export default function Profile({navigation}) {
 
 const card = StyleSheet.create({
     container: {
-
-        // position: 'relative',
-        // resizeMode: 'cover'
+        backgroundColor: 'rgba(14, 80, 9, .85)',
+        flex: 1,
       },
   })

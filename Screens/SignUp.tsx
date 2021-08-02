@@ -44,17 +44,18 @@ export default function SignUp({navigation}) {
 
     return (
         <View style={card.view}>
-            <TextInput style={card.view}
+        <ImageBackground source={require('../components/Forest_Background.jpg')}  style={{flex: 1}}>
+            <TextInput style={{backgroundColor: 'rgba(14, 80, 9, .85)'}}
                 label="Username"
                 value={username}
                 onChangeText={text => setUsername(text)}
             />
-            <TextInput style={card.view}
+            <TextInput style={{backgroundColor: 'rgba(14, 80, 9, .85)'}}
                 label="Password"
                 value={password}
                 onChangeText={text => setPassword(text)}
             />
-            <TextInput style={card.view}
+            <TextInput style={{backgroundColor: 'rgba(14, 80, 9, .85)'}}
                 label="Email"
                 value={email}
                 onChangeText={text => setEmail(text)}
@@ -63,21 +64,21 @@ export default function SignUp({navigation}) {
             <Button mode="contained" onPress={() => navigation.navigate('Login')} style={{ top: 10 }}>Back to Log In</Button>
 
             <TextInput 
-                style={{ top: 10 }}
+                style={{ top: 10, backgroundColor: 'rgba(14, 80, 9, .85)'}}
                 label="Confirm Username"
                 value={authName}
                 onChangeText={text => setAuthName(text)}
             />
 
             <TextInput 
-                style={{ top: 10 }}
+                style={{ top: 10, backgroundColor: 'rgba(14, 80, 9, .85)' }}
                 label="Authentication"
                 value={authCode}
                 onChangeText={text => setAuthCode(text)}
             />
 
             <Button mode="contained" onPress={confirmSignUp} style={{ top: 10 }}>Authenticate</Button>
-
+        </ImageBackground>
         </View>
 
     );
@@ -93,7 +94,7 @@ const card = StyleSheet.create({
     },
     view: {
         backgroundColor: 'rgba(14, 80, 9, .85)',
-        // zIndex: 1,
+        flex: 1,
     },
     sub: {
         // fontSize: 30,

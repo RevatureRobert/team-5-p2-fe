@@ -41,10 +41,11 @@ export default function EditProfile({navigation}) {
     }
 
     return(
-        <View>
-                <Card >
+        <View style={card.container}>
+        <ImageBackground source={require('../components/Forest_Background.jpg')}  style={{flex: 1}}>
+                <Card style={{backgroundColor: 'rgba(14, 80, 9, .85)'}}>
                     <Card.Content>
-                        <TextInput
+                        <TextInput style={{backgroundColor: 'rgba(40, 199, 9, 0.5)'}}
                             label="Edit Profile"
                             value={profile}
                             onChangeText={text => setProfile(text)}
@@ -54,6 +55,7 @@ export default function EditProfile({navigation}) {
                         <Button  mode="outlined" onPress={onButtonPush}>Edit</Button>
                     </Card.Content>
                 </Card>
+            </ImageBackground>
         </View>
     )
 }
@@ -73,8 +75,7 @@ export default function EditProfile({navigation}) {
 const card = StyleSheet.create({
 
     container: {
-
-        // position: 'relative',
-        // resizeMode: 'cover'
+        backgroundColor: 'rgba(14, 80, 9, .85)',
+        flex: 1,
       },
 })

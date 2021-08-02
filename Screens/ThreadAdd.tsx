@@ -28,9 +28,11 @@ export default function ThreadAdd({navigation}) {
 
     return(
         <View style={card.view}>
-            <TextInput label="Title" value={title} onChangeText= {text => setTitle(text)} />
-            <TextInput label="Description" value={description} onChangeText= {text => setDescription(text)} />
+        <ImageBackground source={require('../components/Forest_Background.jpg')}  style={{flex: 1}}>
+            <TextInput style={{backgroundColor: 'rgba(14, 80, 9, .85)'}} label="Title" value={title} onChangeText= {text => setTitle(text)} />
+            <TextInput style={{backgroundColor: 'rgba(14, 80, 9, .85)'}} label="Description" value={description} onChangeText= {text => setDescription(text)} />
             <Button mode= "contained" onPress={onAddSubmit}>Add Thread</Button>
+        </ImageBackground>
         </View>
     );
 }
@@ -45,6 +47,6 @@ const card = StyleSheet.create({
     },
     view: {
         backgroundColor: 'rgba(14, 80, 9, .85)',
-        // zIndex: 1,
+        flex: 1,
     },
 })

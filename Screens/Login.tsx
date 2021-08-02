@@ -44,23 +44,25 @@ const loginDispatcher = (user) => {
 }
   return (
     <View style={card.view}>
-     <TextInput style={card.view}
-              label="Username"
-              value={username}
-              onChangeText={text => setUsername(text)}
-          />
+      <ImageBackground source={require('../components/Forest_Background.jpg')}  style={{flex: 1}}>
+        <TextInput style={{backgroundColor: 'rgba(14, 80, 9, .85)'}}
+                label="Username"
+                value={username}
+                onChangeText={text => setUsername(text)}
+            />
 
-          <TextInput style={card.view}
-              label="Password"
-              value={password}
-              secureTextEntry={true}
-              onChangeText={text => setPassword(text)}
-          />
+            <TextInput style={{backgroundColor: 'rgba(14, 80, 9, .85)'}}
+                label="Password"
+                value={password}
+                secureTextEntry={true}
+                onChangeText={text => setPassword(text)}
+            />
 
-          <Checkbox.Item label="Remember Me?" status="checked" />
+            <Checkbox.Item label="Remember Me?" status="checked" />
 
-          <Button mode="contained" onPress={onLoginPress}>Log In</Button>
-          <Button mode="contained" onPress={() => navigation.navigate('SignUp')} style={{top: 10}}>Sign Up</Button>
+            <Button mode="contained" onPress={onLoginPress}>Log In</Button>
+            <Button mode="contained" onPress={() => navigation.navigate('SignUp')} style={{top: 10}}>Sign Up</Button>
+      </ImageBackground>
     </View>
     
   );
@@ -70,6 +72,6 @@ const loginDispatcher = (user) => {
 const card = StyleSheet.create({
   view: {
       backgroundColor: 'rgba(14, 80, 9, .85)',
-      // zIndex: 1,
+      flex: 1,
   },
 })

@@ -8,7 +8,7 @@ export default function CustomNav({previous, navigation}) {
 
     const loggedIn = useSelector((state: IAppState) => state.userState.loggedIn)
     return(
-        <View>
+        <View style={{flex:0}}>
             <Appbar.Header>
                 {previous ? <Appbar.BackAction onPress={navigation.goBack} /> : null}
                 <Appbar.Content title="Sylph"/>
