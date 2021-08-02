@@ -3,7 +3,7 @@ import Thread from '../components/Thread';
 import { useSelector, useDispatch } from 'react-redux';
 import {IAppState} from '../redux/Store';
 import { fetchThreads } from '../redux/Thunks';
-import { FlatList, View } from 'react-native';
+import { FlatList, View, StyleSheet, SafeAreaView, ImageBackground} from 'react-native';
 
 
 
@@ -18,14 +18,18 @@ export default function Home({navigation}) {
 
     useFetching(fetchThreads);
     
+    const renderItem = ({ item }) => (<Thread thread={item} />);
+
     return (
-    <View>
-        <FlatList
-            data={threads}
-            renderItem={({ item }) => { return <Thread thread={item} /> }}
-            keyExtractor={item => item.id.toString()}
-            >
-        </FlatList>
-    </View>
+    <SafeAreaView style={{flex: 1}}>
+        <ImageBackground source={require('../components/Forest_Background.jpg')}  style={{flex: 1}}>
+            <FlatList
+                data={threads}
+                renderItem={renderItem}
+                keyExtractor={item => item.id.toString()}
+                >
+            </FlatList>
+        </ImageBackground>
+    </SafeAreaView>
     );
 }

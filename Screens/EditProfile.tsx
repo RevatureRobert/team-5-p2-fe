@@ -4,7 +4,7 @@ import { Auth } from 'aws-amplify';
 import { useDispatch, useSelector } from 'react-redux';
 import { UserAction } from '../custom_types/action_types';
 import { IAppState } from '../redux/Store';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, ImageBackground } from 'react-native';
 
 export default function EditProfile({navigation}) {
     const dispatch = useDispatch();
@@ -41,31 +41,28 @@ export default function EditProfile({navigation}) {
     }
 
     return(
-        <View>
-            <Card >
-                <Card.Content>
-                    <TextInput
-                        label="Edit Profile"
-                        value={profile}
-                        onChangeText={text => setProfile(text)}
-                    />
-                </Card.Content>
-                <Card.Content>
-                    <Button  mode="outlined" onPress={onButtonPush}>Edit</Button>
-                </Card.Content>
-            </Card>
+        <View style={card.container}>
+        <ImageBackground source={require('../components/Forest_Background.jpg')}  style={{flex: 1}}>
+                <Card style={{backgroundColor: 'rgba(14, 80, 9, .85)'}}>
+                    <Card.Content>
+                        <TextInput style={{backgroundColor: 'rgba(40, 199, 9, 0.5)'}}
+                            label="Edit Profile"
+                            value={profile}
+                            onChangeText={text => setProfile(text)}
+                        />
+                    </Card.Content>
+                    <Card.Content>
+                        <Button  mode="outlined" onPress={onButtonPush}>Edit</Button>
+                    </Card.Content>
+                </Card>
+            </ImageBackground>
         </View>
     )
 }
 
-// const profileStyle = StyleSheet.create({
-//     card: {
-//         width: '90%',
-//         margin: 'auto',
-//         marginTop: '3em',
-//         paddingVertical: '1em',
-//     },
-//     button: {
-//         marginTop: '1em',
-//     }
-// })
+const card = StyleSheet.create({
+    container: {
+        backgroundColor: 'rgba(14, 80, 9, .85)',
+        flex: 1,
+      },
+})
