@@ -31,8 +31,7 @@ export function postThread(newThread: iThread) {
     return async (dispatch) => {
         try {
             const path = '/threads';
-            const data = await API.post(apiName, path, {body: newThread});
-
+            await API.post(apiName, path, {body: newThread});
             dispatch(addNewThread(newThread));
         } catch (e) {
             console.log('error', e);

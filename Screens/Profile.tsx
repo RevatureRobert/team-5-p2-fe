@@ -1,16 +1,13 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
-import { Avatar, Button, Card, Divider, Headline, Paragraph, Subheading, Title } from 'react-native-paper';
-import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react'
-import { API, Auth } from 'aws-amplify';
+import { Avatar, Title, Button, Card, Divider, Paragraph } from 'react-native-paper';
+import { Auth } from 'aws-amplify';
 import { useDispatch, useSelector } from 'react-redux';
 import { UserAction } from '../custom_types/action_types';
 import { IAppState } from '../redux/Store';
-import { CurrentRenderContext } from '@react-navigation/native';
+import { View, StyleSheet, ImageBackground } from 'react-native';
 
 export default function Profile({navigation}) {
     const dispatch = useDispatch();
-
     const currentUser = useSelector((state: IAppState) => state.userState.currentUser)
 
     async function signOut() {
@@ -34,12 +31,10 @@ export default function Profile({navigation}) {
         logOutDispatcher();
         navigation.navigate('Home');
     }
-
-
-
     return (
-        <View>
-            <Card style= {profileStyle.card}>
+        <View style={card.container}>
+        <ImageBackground source={require('../components/Forest_Background.jpg')}  style={{flex: 1}}>
+            <Card style={{backgroundColor: 'rgba(14, 80, 9, .85)'}}>
                 <Card.Title title={currentUser.username} subtitle={currentUser.email} left={() => <Avatar.Text size={48} label={currentUser.username[0]} />} />
                 <Card.Content>
                     <Title>About Me</Title>
@@ -48,25 +43,20 @@ export default function Profile({navigation}) {
                     </Paragraph>
                     <Divider/>
                 <Card.Content>
-                    <Button style={profileStyle.button} mode="outlined" onPress={() => navigation.navigate('EditProfile')} >Edit</Button>
-                    <Button style={profileStyle.button} onPress={onLogOutPress}   mode="outlined">Logout</Button>
-                    <Button style={profileStyle.button} mode="contained">Delete</Button>
+                    <Button  mode="contained" onPress={() => navigation.navigate('EditProfile')} >Edit</Button>
+                    <Button onPress={onLogOutPress}   mode="contained">Logout</Button>
+                    <Button mode="contained">Delete</Button>
                 </Card.Content>
                 </Card.Content>
             </Card>
+            </ImageBackground>
         </View>
     );
 }
 
-const profileStyle = StyleSheet.create({
-    card: {
-        width: '90%',
-        margin: 'auto',
-        marginTop: '3em',
-        paddingVertical: '1em',
-    },
-    button: {
-        marginTop: '1em',
-       
-    }
-})
+const card = StyleSheet.create({
+    container: {
+        backgroundColor: 'rgba(14, 80, 9, .85)',
+        flex: 1,
+      },
+  })
