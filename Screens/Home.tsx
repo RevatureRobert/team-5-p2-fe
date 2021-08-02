@@ -33,26 +33,3 @@ export default function Home({navigation}) {
     </SafeAreaView>
     );
 }
-
-const style = StyleSheet.create({
-    flat:{
-        alignContent: 'center',
-        margin: 'auto',
-    }
-})
-
-const card = StyleSheet.create({
-    backgroundImage:{
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        bottom: 0,
-        right: 0,
-        opacity: 0.3
-    },
-    
-    container: {
-        // position: 'relative',
-        // resizeMode: 'cover'
-      },
-})

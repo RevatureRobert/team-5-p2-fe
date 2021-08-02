@@ -39,11 +39,9 @@ export default function ThreadAdd({navigation}) {
 
 const card = StyleSheet.create({
     title: {
-        // width: '50%',
         margin: 'auto',
         padding: '1em',
         marginBottom: '10px',
-        // backgroundColor: '#279',
     },
     view: {
         backgroundColor: 'rgba(14, 80, 9, .85)',

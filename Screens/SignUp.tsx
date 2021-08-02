@@ -85,23 +85,11 @@ export default function SignUp({navigation}) {
 }
 
 const card = StyleSheet.create({
-    title: {
-        // width: '50%',
-        margin: 'auto',
-        padding: '1em',
-        marginBottom: '10px',
-        // backgroundColor: '#279',
-    },
     view: {
         backgroundColor: 'rgba(14, 80, 9, .85)',
         flex: 1,
     },
-    sub: {
-        // fontSize: 30,
-        // color: '#000'
-    },
     thread: {
-        //width: '1000%',
         width:'80%',
         padding: '3.5%',
         marginBottom: '5%',
@@ -111,13 +99,4 @@ const card = StyleSheet.create({
         alignContent: 'center',
         margin: 'auto',
     },
-    text: {
-        // fontSize: 30,
-        // color: '#000'
-    },
-    container: {
-        resizeMode: 'cover'
-        // position: 'relative',
-        // resizeMode: 'cover'
-      },
 })

@@ -60,20 +60,7 @@ export default function EditProfile({navigation}) {
     )
 }
 
-// const profileStyle = StyleSheet.create({
-//     card: {
-//         width: '90%',
-//         margin: 'auto',
-//         marginTop: '3em',
-//         paddingVertical: '1em',
-//     },
-//     button: {
-//         marginTop: '1em',
-//     }
-// })
-
 const card = StyleSheet.create({
-
     container: {
         backgroundColor: 'rgba(14, 80, 9, .85)',
         flex: 1,
