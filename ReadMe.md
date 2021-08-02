@@ -40,10 +40,10 @@ Getting Started
     - There is currently no way to run this app on iOS for those not on the development team
     - On Android, there are two ways to get our app
         - Download the `Expo` app from the Play Store and do ONE of the following
-            - Go to [here](https://expo.io/@jkula19/team5-p2-fe ) on another device and scan the QR code
+            - Go to [here](https://expo.io/@jkula19/team5-p2-fe) on another device and scan the QR code
             - Paste `exp://exp.host/@jkula19/team5-p2-fe` into the Tools Category
         - Sideload an APK
-            - Using an [APK](https://expo.io/artifacts/05fd30f5-2e54-4a2d-970e-56710b222db1)
+            - Download the [APK](https://expo.io/artifacts/d5f29035-9500-4d0a-9757-5a9e197061c1)
             - Download and install Android Studio
             - Create a blank project or open and existing one
             - Open the AVD (Android Virtual Device) Manager using the icon at the top right or selecting it from the `Tools` menu
