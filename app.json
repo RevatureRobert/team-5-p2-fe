@@ -24,8 +24,9 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       },
-      "softwareKeyboardLayoutMode": "pan"
-      },
+      "softwareKeyboardLayoutMode": "pan",
+      "package": "com.jkula19.team5p2fe"
+    },
     "web": {
       "favicon": "./assets/favicon.png"
     }
