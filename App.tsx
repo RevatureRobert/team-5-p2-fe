@@ -21,7 +21,7 @@ import EditProfile from './Screens/EditProfile';
 import { Provider as PaperProvider, DefaultTheme } from 'react-native-paper';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { StyleSheet } from 'react-native';
+import { Image, StyleSheet, View } from 'react-native';
 
 Amplify.configure(config);
 
@@ -41,17 +41,17 @@ export default function App() {
   };
 
   return (
-    <Provider store={store}> {/*Supply redux state */}
-      <PaperProvider theme={theme} > {/*Supplies themes to react native paper*/}
+    <Provider store={store}>
+      <PaperProvider theme={theme}>
           <NavigationContainer>
-            <Stack.Navigator //Merge React Native Paper Header with Stack Navigation
+            <Stack.Navigator
               initialRouteName="Home"
               screenOptions={{
                 header: (props: any) => (
                   <CustomNav
                     {...props}
                   />
-                ),
+                ), //Use Custom Navigator Bar
               }}
             >
               <Stack.Screen name="Home">
