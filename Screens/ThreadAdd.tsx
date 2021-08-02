@@ -3,7 +3,7 @@ import { TextInput, Button } from 'react-native-paper';
 import {useDispatch, useSelector} from 'react-redux';
 import { IAppState } from '../redux/Store';
 import { postThread } from '../redux/Thunks';
-import { View } from 'react-native';
+import { ImageBackground, View , StyleSheet} from 'react-native';
 
 export default function ThreadAdd({navigation}) {
     const dispatch = useDispatch();
@@ -34,3 +34,11 @@ export default function ThreadAdd({navigation}) {
         </View>
     );
 }
+
+const card = StyleSheet.create({
+    container: {
+
+        // position: 'relative',
+        // resizeMode: 'cover'
+      },
+  })

@@ -4,7 +4,7 @@ import { Auth } from 'aws-amplify';
 import { useDispatch, useSelector } from 'react-redux';
 import { UserAction } from '../custom_types/action_types';
 import { IAppState } from '../redux/Store';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, ImageBackground } from 'react-native';
 
 export default function EditProfile({navigation}) {
     const dispatch = useDispatch();
@@ -42,18 +42,18 @@ export default function EditProfile({navigation}) {
 
     return(
         <View>
-            <Card >
-                <Card.Content>
-                    <TextInput
-                        label="Edit Profile"
-                        value={profile}
-                        onChangeText={text => setProfile(text)}
-                    />
-                </Card.Content>
-                <Card.Content>
-                    <Button  mode="outlined" onPress={onButtonPush}>Edit</Button>
-                </Card.Content>
-            </Card>
+                <Card >
+                    <Card.Content>
+                        <TextInput
+                            label="Edit Profile"
+                            value={profile}
+                            onChangeText={text => setProfile(text)}
+                        />
+                    </Card.Content>
+                    <Card.Content>
+                        <Button  mode="outlined" onPress={onButtonPush}>Edit</Button>
+                    </Card.Content>
+                </Card>
         </View>
     )
 }
@@ -69,3 +69,12 @@ export default function EditProfile({navigation}) {
 //         marginTop: '1em',
 //     }
 // })
+
+const card = StyleSheet.create({
+
+    container: {
+
+        // position: 'relative',
+        // resizeMode: 'cover'
+      },
+})

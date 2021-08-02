@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { TextInput, Button } from 'react-native-paper';
 import { Auth } from 'aws-amplify'
-import { View } from 'react-native';
+import { ImageBackground, View, StyleSheet} from 'react-native';
 
 export default function SignUp({navigation}) {
 
@@ -78,8 +78,15 @@ export default function SignUp({navigation}) {
 
             <Button mode="contained" onPress={confirmSignUp} style={{ top: 10 }}>Authenticate</Button>
 
-
         </View>
 
     );
 }
+
+const card = StyleSheet.create({
+    container: {
+
+        // position: 'relative',
+        // resizeMode: 'cover'
+      },
+  })

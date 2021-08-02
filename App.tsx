@@ -21,6 +21,7 @@ import EditProfile from './Screens/EditProfile';
 import { Provider as PaperProvider } from 'react-native-paper';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import { ImageBackground, StyleSheet } from 'react-native';
 
 Amplify.configure(config);
 
@@ -29,10 +30,11 @@ const rootReducer = combineReducers({threadState: reducersThread, userState: red
 const store:Store<IAppState, IUserActions | IThreadActions> = createStore(rootReducer, applyMiddleware(thunk));
 
 export default function App() {
-
+  const image = { uri: "./components/Forest_Background.jpg" }
   return (
     <Provider store={store} >
       <PaperProvider>
+        <ImageBackground source={image} resizeMode="cover" style={card.image}>
         <NavigationContainer>
           <Stack.Navigator
             initialRouteName="Home"
@@ -56,10 +58,49 @@ export default function App() {
             <Stack.Screen name="EditProfile" component={EditProfile}/>
           </Stack.Navigator>
         </NavigationContainer>
+        </ImageBackground>
       </PaperProvider>
     </Provider>
   );
 }
 
 
+const card = StyleSheet.create({
+  title: {
+      // width: '50%',
+      margin: 'auto',
+      padding: '1em',
+      marginBottom: '10px',
+      // backgroundColor: '#279',
+  },
+  view: {
+      backgroundColor: 'rgba(14, 80, 9, .85)',
+      zIndex: 1,
+  },
+  sub: {
+      // fontSize: 30,
+      // color: '#000'
+  },
+  thread: {
+      //width: '1000%',
+      width:'80%',
+      margin: 'auto',
+      padding: '3.5%',
+      marginBottom: '5%',
+      backgroundColor: 'rgba(40, 199, 9, 0.5)',
+      alignContent: 'center'
+  },
+  text: {
+      // fontSize: 30,
+      // color: '#000'
+  },
+  container: {
 
+      // position: 'relative',
+      // resizeMode: 'cover'
+    },
+  image: {
+    flex: 1,
+    justifyContent: "center"
+  },
+})

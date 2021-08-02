@@ -4,7 +4,7 @@ import { Auth } from 'aws-amplify';
 import { useDispatch, useSelector } from 'react-redux';
 import { UserAction } from '../custom_types/action_types';
 import { IAppState } from '../redux/Store';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, ImageBackground } from 'react-native';
 
 export default function Profile({navigation}) {
     const dispatch = useDispatch();
@@ -64,3 +64,11 @@ export default function Profile({navigation}) {
        
 //     }
 // })
+
+const card = StyleSheet.create({
+    container: {
+
+        // position: 'relative',
+        // resizeMode: 'cover'
+      },
+  })

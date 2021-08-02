@@ -3,7 +3,7 @@ import { TextInput, Checkbox, Button } from 'react-native-paper';
 import { useDispatch } from 'react-redux';
 import { UserAction } from '../custom_types/action_types';
 import { Auth } from 'aws-amplify'
-import { View } from 'react-native';
+import { View, ImageBackground, StyleSheet} from 'react-native';
 
 export default function Login({navigation}) {
   const dispatch = useDispatch();
@@ -44,25 +44,34 @@ const loginDispatcher = (user) => {
 }
   return (
     <View>
-        <TextInput
-            label="Username"
-            value={username}
-            onChangeText={text => setUsername(text)}
-        />
+     <TextInput
+              label="Username"
+              value={username}
+              onChangeText={text => setUsername(text)}
+          />
 
-        <TextInput
-            label="Password"
-            value={password}
-            secureTextEntry={true}
-            onChangeText={text => setPassword(text)}
-        />
+          <TextInput
+              label="Password"
+              value={password}
+              secureTextEntry={true}
+              onChangeText={text => setPassword(text)}
+          />
 
-        <Checkbox.Item label="Remember Me?" status="checked" />
+          <Checkbox.Item label="Remember Me?" status="checked" />
 
-        <Button mode="contained" onPress={onLoginPress}>Log In</Button>
-        <Button mode="contained" onPress={() => navigation.navigate('SignUp')} style={{top: 10}}>Sign Up</Button>
-
+          <Button mode="contained" onPress={onLoginPress}>Log In</Button>
+          <Button mode="contained" onPress={() => navigation.navigate('SignUp')} style={{top: 10}}>Sign Up</Button>
     </View>
     
   );
 }
+
+
+const card = StyleSheet.create({
+
+  container: {
+      // resizeMode: 'cover'
+      // position: 'relative',
+      // resizeMode: 'cover'
+    },
+})
