@@ -43,14 +43,14 @@ const loginDispatcher = (user) => {
   })
 }
   return (
-    <View>
-     <TextInput
+    <View style={card.view}>
+     <TextInput style={card.view}
               label="Username"
               value={username}
               onChangeText={text => setUsername(text)}
           />
 
-          <TextInput
+          <TextInput style={card.view}
               label="Password"
               value={password}
               secureTextEntry={true}
@@ -68,10 +68,8 @@ const loginDispatcher = (user) => {
 
 
 const card = StyleSheet.create({
-
-  container: {
-      // resizeMode: 'cover'
-      // position: 'relative',
-      // resizeMode: 'cover'
-    },
+  view: {
+      backgroundColor: 'rgba(14, 80, 9, .85)',
+      // zIndex: 1,
+  },
 })

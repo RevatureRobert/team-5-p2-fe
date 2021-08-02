@@ -27,7 +27,7 @@ export default function ThreadAdd({navigation}) {
     const currentUserName = useSelector((state: IAppState) => state.userState.currentUser.username)
 
     return(
-        <View>
+        <View style={card.view}>
             <TextInput label="Title" value={title} onChangeText= {text => setTitle(text)} />
             <TextInput label="Description" value={description} onChangeText= {text => setDescription(text)} />
             <Button mode= "contained" onPress={onAddSubmit}>Add Thread</Button>
@@ -36,9 +36,15 @@ export default function ThreadAdd({navigation}) {
 }
 
 const card = StyleSheet.create({
-    container: {
-
-        // position: 'relative',
-        // resizeMode: 'cover'
-      },
-  })
+    title: {
+        // width: '50%',
+        margin: 'auto',
+        padding: '1em',
+        marginBottom: '10px',
+        // backgroundColor: '#279',
+    },
+    view: {
+        backgroundColor: 'rgba(14, 80, 9, .85)',
+        // zIndex: 1,
+    },
+})

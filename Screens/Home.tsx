@@ -21,15 +21,15 @@ export default function Home({navigation}) {
     const renderItem = ({ item }) => (<Thread thread={item} />);
 
     return (
-    <SafeAreaView >
-        {/* <ImageBackground source={require('../components/Forest_Background.jpg')}  style={{flex: 1, width: '100%', height: '100%'}}> */}
+    <SafeAreaView style={{flex: 1}}>
+        <ImageBackground source={require('../components/Forest_Background.jpg')}  style={{flex: 1}}>
             <FlatList
                 data={threads}
                 renderItem={renderItem}
                 keyExtractor={item => item.id.toString()}
                 >
             </FlatList>
-        {/* </ImageBackground> */}
+        </ImageBackground>
     </SafeAreaView>
     );
 }

@@ -43,18 +43,18 @@ export default function SignUp({navigation}) {
     }
 
     return (
-        <View>
-            <TextInput
+        <View style={card.view}>
+            <TextInput style={card.view}
                 label="Username"
                 value={username}
                 onChangeText={text => setUsername(text)}
             />
-            <TextInput
+            <TextInput style={card.view}
                 label="Password"
                 value={password}
                 onChangeText={text => setPassword(text)}
             />
-            <TextInput
+            <TextInput style={card.view}
                 label="Email"
                 value={email}
                 onChangeText={text => setEmail(text)}
@@ -62,14 +62,14 @@ export default function SignUp({navigation}) {
             <Button mode="contained" onPress={onSignUpSubmit}>Sign Up</Button>
             <Button mode="contained" onPress={() => navigation.navigate('Login')} style={{ top: 10 }}>Back to Log In</Button>
 
-            <TextInput
+            <TextInput 
                 style={{ top: 10 }}
                 label="Confirm Username"
                 value={authName}
                 onChangeText={text => setAuthName(text)}
             />
 
-            <TextInput
+            <TextInput 
                 style={{ top: 10 }}
                 label="Authentication"
                 value={authCode}
@@ -84,9 +84,39 @@ export default function SignUp({navigation}) {
 }
 
 const card = StyleSheet.create({
+    title: {
+        // width: '50%',
+        margin: 'auto',
+        padding: '1em',
+        marginBottom: '10px',
+        // backgroundColor: '#279',
+    },
+    view: {
+        backgroundColor: 'rgba(14, 80, 9, .85)',
+        // zIndex: 1,
+    },
+    sub: {
+        // fontSize: 30,
+        // color: '#000'
+    },
+    thread: {
+        //width: '1000%',
+        width:'80%',
+        padding: '3.5%',
+        marginBottom: '5%',
+        marginTop: '5%',
+        marginLeft: '9%',
+        backgroundColor: 'rgba(40, 199, 9, 0.5)',
+        alignContent: 'center',
+        margin: 'auto',
+    },
+    text: {
+        // fontSize: 30,
+        // color: '#000'
+    },
     container: {
-
+        resizeMode: 'cover'
         // position: 'relative',
         // resizeMode: 'cover'
       },
-  })
+})

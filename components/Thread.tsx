@@ -2,6 +2,7 @@ import React from 'react';
 import {iThread} from '../custom_types/object_types';
 import { Button, Card, Paragraph } from 'react-native-paper';
 import { View, StyleSheet, Image, ImageBackground } from 'react-native';
+// import * as style from './site.css';
 
 interface IProps {
     thread: iThread;
@@ -11,7 +12,7 @@ const Threads: React.FC<IProps> = (props: IProps) =>{
     return(
         <View style= {card.view}>
             {/* <ImageBackground style={{flex: 1, width: '100%', height: '100%'}} source={require('./Forest_Background.jpg')}> */}
-                <Card style = {card.thread}>
+                <Card style={card.thread}>
                     <Card.Title titleNumberOfLines={10} titleStyle={{flexWrap:'wrap'}} title = {props.thread.title} subtitle= {props.thread.author}/>
                     <Card.Content>
                         <Paragraph>{props.thread.description}</Paragraph>

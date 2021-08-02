@@ -18,10 +18,10 @@ import Amplify from 'aws-amplify';
 import config from './src/aws-exports';
 import SignUp from './Screens/SignUp';
 import EditProfile from './Screens/EditProfile';
-import { Provider as PaperProvider } from 'react-native-paper';
+import { Provider as PaperProvider, DefaultTheme } from 'react-native-paper';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { ImageBackground, StyleSheet } from 'react-native';
+import { Image, StyleSheet, View } from 'react-native';
 
 Amplify.configure(config);
 
@@ -30,35 +30,42 @@ const rootReducer = combineReducers({threadState: reducersThread, userState: red
 const store:Store<IAppState, IUserActions | IThreadActions> = createStore(rootReducer, applyMiddleware(thunk));
 
 export default function App() {
-  const image = { uri: "./components/Forest_Background.jpg" }
+  const theme = {
+    ...DefaultTheme,
+    roundness: 2,
+    colors: {
+      ...DefaultTheme.colors,
+      primary: 'rgba(40, 199, 9, 0.5)',
+      accent: '#f1c40f',
+    },
+  };
+
   return (
-    <Provider store={store} >
-      <PaperProvider>
-        <ImageBackground source={image} resizeMode="cover" style={card.image}>
-        <NavigationContainer>
-          <Stack.Navigator
-            initialRouteName="Home"
-            screenOptions={{
-              header: (props: any) => (
-                <CustomNav
-                  {...props}
-                />
-              ), //Use Custom Navigator Bar
-            }}
-          >
-            <Stack.Screen name="Home">
-              {(props) => <Home {...props}/>}
-            </Stack.Screen>
-            <Stack.Screen name="Profile">
-             {(props) => <Profile {...props}/>}
-            </Stack.Screen>
-            <Stack.Screen name="Login" component={Login}/>
-            <Stack.Screen name="SignUp" component={SignUp} />
-            <Stack.Screen name="ThreadAdd" component={ThreadAdd}/>
-            <Stack.Screen name="EditProfile" component={EditProfile}/>
-          </Stack.Navigator>
-        </NavigationContainer>
-        </ImageBackground>
+    <Provider store={store}>
+      <PaperProvider theme={theme}>
+          <NavigationContainer>
+            <Stack.Navigator
+              initialRouteName="Home"
+              screenOptions={{
+                header: (props: any) => (
+                  <CustomNav
+                    {...props}
+                  />
+                ), //Use Custom Navigator Bar
+              }}
+            >
+              <Stack.Screen name="Home">
+                {(props) => <Home {...props}/>}
+              </Stack.Screen>
+              <Stack.Screen name="Profile">
+              {(props) => <Profile {...props}/>}
+              </Stack.Screen>
+              <Stack.Screen name="Login" component={Login}/>
+              <Stack.Screen name="SignUp" component={SignUp} />
+              <Stack.Screen name="ThreadAdd" component={ThreadAdd}/>
+              <Stack.Screen name="EditProfile" component={EditProfile}/>
+            </Stack.Navigator>
+          </NavigationContainer>
       </PaperProvider>
     </Provider>
   );
@@ -101,6 +108,7 @@ const card = StyleSheet.create({
     },
   image: {
     flex: 1,
-    justifyContent: "center"
+    justifyContent: 'center',
+    zIndex: -1
   },
 })
