@@ -7,21 +7,21 @@ const awsmobile = {
     "aws_user_pools_id": "us-east-2_zXofi8dKe",
     "aws_user_pools_web_client_id": "7q3rdm35mka8q7hhtouf699eh8",
     "oauth": {},
-    "aws_appsync_graphqlEndpoint": "https://7dge6qoxzbe3tmaricno4qyufi.appsync-api.us-east-2.amazonaws.com/graphql",
+    "aws_appsync_graphqlEndpoint": "https://beha3zttxvdn3c5p3ekrsfau7u.appsync-api.us-east-2.amazonaws.com/graphql",
     "aws_appsync_region": "us-east-2",
     "aws_appsync_authenticationType": "API_KEY",
-    "aws_appsync_apiKey": "da2-rh5nehve6nhw7ina3fa5zaoa7e",
+    "aws_appsync_apiKey": "da2-oawykrfcffcftc4axfbrnz2mny",
     "aws_cloud_logic_custom": [
         {
             "name": "threadAPI",
-            "endpoint": "https://4joy85d5dd.execute-api.us-east-2.amazonaws.com/staging",
+            "endpoint": "https://9j4xprmsid.execute-api.us-east-2.amazonaws.com/dev",
             "region": "us-east-2"
         }
     ],
     "aws_dynamodb_all_tables_region": "us-east-2",
     "aws_dynamodb_table_schemas": [
         {
-            "tableName": "ThreadsTable-staging",
+            "tableName": "ThreadsTable-dev",
             "region": "us-east-2"
         }
     ]
