@@ -70,6 +70,6 @@ Usage
 
 Contributors
 ---
+-  Tyler Yates
 -  Jacob Kula
 -  Matthew Otto
--  Tyler Yates
