@@ -1,5 +1,0 @@
-{
-    "tableName": "ThreadsTable",
-    "partitionKeyName": "id",
-    "partitionKeyType": "N"
-}
