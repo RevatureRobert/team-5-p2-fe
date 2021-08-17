@@ -13,6 +13,7 @@ import { IThreadActions, IUserActions } from './custom_types/action_types';
 import {reducersThread, reducersUser} from './redux/Reducers'
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
+//fuck Jared
 
 import Amplify from 'aws-amplify';
 import config from './src/aws-exports';
