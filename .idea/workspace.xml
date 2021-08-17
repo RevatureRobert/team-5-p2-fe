@@ -4,7 +4,41 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c7dc1d7c-4eb5-423f-a13b-7a90b691130f" name="Default Changelist" comment="" />
+    <list default="true" id="c7dc1d7c-4eb5-423f-a13b-7a90b691130f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/amplify/.config/project-config.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/amplify/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/amplify/backend/api/SylphBE/parameters.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/amplify/backend/api/SylphBE/resolvers/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/amplify/backend/api/SylphBE/schema.graphql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/amplify/backend/api/SylphBE/stacks/CustomResources.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/amplify/backend/api/SylphBE/transform.conf.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/amplify/backend/api/apie9ac7fd3/api-params.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/amplify/backend/api/apie9ac7fd3/apie9ac7fd3-cloudformation-template.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/amplify/backend/api/apie9ac7fd3/parameters.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/amplify/backend/api/threadAPI/api-params.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/amplify/backend/api/threadAPI/parameters.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/amplify/backend/api/threadAPI/threadAPI-cloudformation-template.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/amplify/backend/auth/sylphbe/parameters.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/amplify/backend/backend-config.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/amplify/backend/function/SylphBECRUDLambda/SylphBECRUDLambda-cloudformation-template.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/amplify/backend/function/SylphBECRUDLambda/__tests__/setup.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/amplify/backend/function/SylphBECRUDLambda/__tests__/testThread.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/amplify/backend/function/SylphBECRUDLambda/__tests__/threads.test.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/amplify/backend/function/SylphBECRUDLambda/amplify.state" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/amplify/backend/function/SylphBECRUDLambda/function-parameters.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/amplify/backend/function/SylphBECRUDLambda/src/app.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/amplify/backend/function/SylphBECRUDLambda/src/event.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/amplify/backend/function/SylphBECRUDLambda/src/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/amplify/backend/function/SylphBECRUDLambda/src/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/amplify/backend/function/SylphBECRUDLambda/src/yarn.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/amplify/backend/storage/Threads/Threads-cloudformation-template.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/amplify/backend/storage/Threads/parameters.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/amplify/backend/storage/Threads/storage-params.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/amplify/backend/tags.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/amplify/cli.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/amplify/team-provider-info.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aws-exports.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/aws-exports.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -97,5 +131,9 @@
       <screen x="0" y="25" width="1920" height="984" />
     </state>
     <state x="424" y="176" width="1071" height="706" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.25.1920.984@0.25.1920.984" timestamp="1627759255820" />
+    <state x="120" y="145" width="1200" height="580" key="AVDManager" timestamp="1628263191645">
+      <screen x="0" y="25" width="1440" height="820" />
+    </state>
+    <state x="120" y="145" width="1200" height="580" key="AVDManager/0.25.1440.820/-1920.-103.1920.1055@0.25.1440.820" timestamp="1628263191645" />
   </component>
 </project>

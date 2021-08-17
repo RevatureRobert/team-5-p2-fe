@@ -35,7 +35,7 @@ export default function App() {
     roundness: 2,
     colors: {
       ...DefaultTheme.colors,
-      primary: 'rgba(40, 199, 9, 0.5)',
+      primary: '#012701',
       accent: '#f1c40f',
     },
   };
